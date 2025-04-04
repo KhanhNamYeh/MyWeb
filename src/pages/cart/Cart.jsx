@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./cart.css"; 
+import Radio from "./Radio";
+import Product from "./Product"; 
 import book1 from "../../assets/book1.png"; 
+import book2 from "../../assets/book2.png";
 
 const Cart = () => {
   const [cart, setCart] = useState([
-    { id: 1, name: "Erasure", author: "by Percival Everett", price: 233000, quantity: 1, image: book1 },
-    { id: 2, name: "Erasure", author: "by Percival Everett", price: 233000, quantity: 1, image: book1 },
+    { id: 1, name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book1 },
+    { id: 2, name: "Arasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book2 },
   ]);
   const [paymentMethod, setPaymentMethod] = useState("COD");
 
@@ -23,7 +26,7 @@ const Cart = () => {
     setCart(cart.filter((item) => item.id !== id));
   };
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.sale * item.quantity, 0);
 
   return (
     <div className="cart-container">
@@ -37,28 +40,29 @@ const Cart = () => {
 
       <div className="product-list">
         {cart.map((item) => (
-          <div key={item.id} className="product">
-            <div className="product-details">
-              <img src={item.image} alt={item.name} />
-              <div className="product-info">
-                <a>Erasure</a>
-                <a>by Percival Everett</a>
-                <s>493.000 vnd</s>
-                <a>233.000 vnd</a>
-              </div>
-            </div>
-            <div className="quantity-control">
-              <button className="button" onClick={() => handleQuantityChange(item.id, -1)}>-</button>
-              <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-              <button className="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
-            </div>
-            <span className="product-cost">{(item.price * item.quantity).toLocaleString()} vnd</span>
-            <button className="button del" onClick={() => handleRemove(item.id)}>Xóa</button>
-          </div>
+          <Product 
+            key={item.id} 
+            item={item} 
+            handleQuantityChange={handleQuantityChange} 
+            handleRemove={handleRemove} 
+          />
         ))}
       </div>
+      
+      <div className="cart-buy">
+        <div className="cart-buy-address">
+          <div><strong>Địa chỉ giao hàng:</strong> 143 Phước Thiện, Long Thạnh Mỹ, Quận 9, Thành phố Thủ Đức</div>
+          <button>Thay đổi</button>
+        </div>
+        <div className="cart-buy-method">
+          <Radio/>
+          <div className="cart-buy-cost">Tổng thanh toán ({cart.length} sản phẩm): {total.toLocaleString()} vnd</div>
+        </div>
+      </div>
+      <div className="cart-payment">
+        <button>Thanh toán</button>
+      </div>
     </div>
-
   );
 };
 
