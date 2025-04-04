@@ -104,3 +104,55 @@ button.del:hover {
     background-color: white;
 }
 
+.cart-buy {
+    margin: 20px 0;
+    display: flex;
+}
+
+.cart-buy-address {
+    font-family: Be Vietnam;
+    font-size: 24px;
+    line-height: 100%;
+    width: 50%;
+}
+
+.cart-buy-address button {
+    background-color: #fff;
+    color: green;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.cart-buy-method {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;  
+    width: 80%;
+}
+
+.cart-buy-cost {
+    margin-top: 20px;
+
+}
+
+.cart-payment {
+    text-align: right;
+}
+
+.cart-payment button {
+    background-color: #658C65;
+    color: #F1E8DA;
+    border: none;
+    padding: 20px 30px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 45px;
+}
+
+
+
