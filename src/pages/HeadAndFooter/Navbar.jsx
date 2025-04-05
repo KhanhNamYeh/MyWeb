@@ -11,7 +11,7 @@ const Navbar = () => {
       </Link>
       <ul className="nav-links">
         <li>
-          <Link to="/notifications">
+          <Link to="/notification">
             <Notifications /> Thông báo
           </Link>
         </li>

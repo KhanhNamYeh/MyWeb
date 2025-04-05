@@ -7,8 +7,8 @@ import Footer from "../HeadAndFooter/Footer";
 
 import Radio from "./component/Radio";
 import Product from "./component/Product"; 
-import book1 from "../../assets/book1.png";
-import book2 from "../../assets/book2.png";
+import book1 from "/images/erasure.jpg";
+import book2 from "/images/harlem_shuffle.jpg";
 
 function Cart() {
   const [cart, setCart] = useState([
