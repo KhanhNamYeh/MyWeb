@@ -9,7 +9,6 @@
     overflow: hidden;
     height: 600px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #C8DACE; 
 }
 
 .left-panel {
@@ -17,17 +16,18 @@
     font-weight: 700; 
     background-color: #658C6580; 
     height: 600px;
+    border-right: 1px solid white;
 }
 
 .right-panel {
     padding: 50px;
-    background-color: #C8DACE; 
+    background-color: #658c6562; 
     height: 600px; 
     overflow-y: auto; 
 }
 
 .notice-button {
-    background-color: #8fb68f80;  
+    background-color: #658c6500;  
     color: black;               
     font-size: 16px;            
     font-weight: normal;         

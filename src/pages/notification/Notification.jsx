@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './notification.css';
+import '../../index.css'; // Giả định import đúng
 import Product from './Product'; // Giả định import đúng
 import Navbar from "../HeadAndFooter/Navbar"; // Giả định import đúng
 import Footer from "../HeadAndFooter/Footer"; // Giả định import đúng
@@ -23,7 +24,7 @@ const Notification = () => {
               <div>
                 <button
                   onClick={() => setActivePanel('general')}
-                  className={`${getButtonClass('general')} mx-5 px-4`} 
+                  className={`${getButtonClass('general')} mx-5 px-3`} 
                 >
                   Thông báo chung
                 </button>
@@ -31,7 +32,7 @@ const Notification = () => {
               <div>
                 <button
                   onClick={() => setActivePanel('sales')}
-                  className={`${getButtonClass('sales')} mx-5 px-4`} 
+                  className={`${getButtonClass('sales')} mx-5 px-3`} 
                 >
                   Khuyến mãi
                 </button>

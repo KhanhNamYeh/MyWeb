@@ -1,13 +1,13 @@
 import React from "react";
 import book1 from "/images/erasure.jpg";
 import book2 from "/images/harlem_shuffle.jpg";
-import book3 from "/public/images/native_nations.jpg";
+import book3 from "/images/native_nations.jpg";
 import "./product.css";
 
 const items = [
-  { id: 1, name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book1, status: "Dang kiem tra", form: "Huy don" },
-  { id: 2, name: "Arasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book2, status: "Dang tren duong", form: " " },
-  { id: 3, name: "Brasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book3, status: "Da giao hang", form: "Tra hang" }
+  { id: 1, name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book1, status: "Đang kiểm tra", form: "Hủy đơn" },
+  { id: 2, name: "Arasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book2, status: "Đang trên đường", form: " " },
+  { id: 3, name: "Brasure", author: "by Percival Everett", sale: 233000, price: 493000, quantity: 1, image: book3, status: "Đã giao hàng", form: "Trả hàng" }
 ];
 
 const Product = () => {
@@ -31,10 +31,10 @@ const Product = () => {
                     <div><strong>{item.sale} vnd</strong></div>
             </div>
                 <div className="col-sm-6">
-                    <div><strong>Trang thai</strong></div>
+                    <div><strong>Trạng thái</strong></div>
                     <div>{item.status || "N/A"}</div>
                     <button>{item.form || "N/A"}</button>
-                    <div><strong>So luong: {item.quantity}</strong></div>
+                    <div><strong>Số lượng: {item.quantity}</strong></div>
                 </div>
             </div>
           </div>
