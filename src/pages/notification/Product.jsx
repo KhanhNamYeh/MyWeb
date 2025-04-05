@@ -1,7 +1,7 @@
 import React from "react";
-import book1 from "../../assets/book1.png";
-import book2 from "../../assets/book2.png";
-import book3 from "../../assets/book3.png";
+import book1 from "/images/erasure.jpg";
+import book2 from "/images/harlem_shuffle.jpg";
+import book3 from "/public/images/native_nations.jpg";
 import "./product.css";
 
 const items = [
