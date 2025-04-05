@@ -27,8 +27,8 @@ const Product = () => {
                 <div className="col-sm-6">
                     <div><strong>{item.name}</strong></div>
                     <div>{item.author}</div>
-                    <div><s>{item.price}</s> vnd</div>
-                    <div><strong>{item.sale} vnd</strong></div>
+                    <div><s>{item.price.toLocaleString('vi-VN')} vnd</s></div>
+                    <div><strong>{item.sale.toLocaleString('vi-VN')} vnd</strong></div>
             </div>
                 <div className="col-sm-6">
                     <div><strong>Trạng thái</strong></div>

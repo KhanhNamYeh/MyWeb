@@ -4,6 +4,7 @@ import '../../index.css'; // Giả định import đúng
 import Product from './Product'; // Giả định import đúng
 import Navbar from "../HeadAndFooter/Navbar"; // Giả định import đúng
 import Footer from "../HeadAndFooter/Footer"; // Giả định import đúng
+import BookTabs from './BookTabs';
 
 const Notification = () => {
   const [activePanel, setActivePanel] = useState('orders');
@@ -50,8 +51,7 @@ const Notification = () => {
               {activePanel === 'orders' && <Product />}
               {activePanel === 'sales' && (
                 <div className="notice-sale">
-                  <h4>Thông báo Khuyến mãi</h4>
-                  {/* Thêm nội dung */}
+                  <BookTabs/>
                 </div>
               )}
               {activePanel === 'general' && (

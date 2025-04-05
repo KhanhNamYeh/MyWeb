@@ -8,8 +8,8 @@ const Product = ({ item, handleQuantityChange, handleRemove }) => {
         <div className="product-info">
           <a>{item.name}</a>
           <a>{item.author}</a>
-          <s>{item.price} vnd</s>
-          <a><strong>{item.sale} vnd</strong></a>
+          <s>{item.price.toLocaleString('vi-VN')} vnd</s>
+          <a><strong>{item.sale.toLocaleString('vi-VN')} vnd</strong></a>
         </div>
       </div>
       <div className="quantity-control">
@@ -17,7 +17,7 @@ const Product = ({ item, handleQuantityChange, handleRemove }) => {
         <span style={{ margin: "0 10px" }}>{item.quantity}</span>
         <button className="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
       </div>
-      <span className="product-cost">{(item.sale * item.quantity).toLocaleString()} vnd</span>
+      <span className="product-cost">{(item.sale * item.quantity).toLocaleString('vi-VN')} vnd</span>
       <button className="button del" onClick={() => handleRemove(item.id)}>Xóa</button>
     </div>
   );
