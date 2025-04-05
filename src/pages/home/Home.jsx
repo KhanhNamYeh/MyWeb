@@ -1,20 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link để điều hướng
+
+// Điều chỉnh import Navbar, Footer, và CSS sang đường dẫn mới
+import Navbar from "../HeadAndFooter/Navbar";
+import Footer from "../HeadAndFooter/Footer";
 import "./home.css";
 
-const Home = () => (
-  <div>
-    <h1>Trang Chủ</h1>
-    <nav>
-      <ul>
-        <li><Link to="/login">Đăng nhập</Link></li>
-        <li><Link to="/cart">Giỏ hàng</Link></li>
-        <li><Link to="/notification">Thông báo</Link></li>
-        <li><Link to="/wishlist">Danh sách yêu thích</Link></li>
-        <li><Link to="/user">Tài khoản</Link></li>
-      </ul>
-    </nav>
-  </div>
-);
+// SearchBar và BookList vẫn nằm trong thư mục `home`
+import SearchBar from "./component/SearchBar";
+import BookList from "./component/BookList";
+
+const Home = () => {
+  return (
+    <div className="home-container">
+      <Navbar />
+      <SearchBar />
+      <BookList />
+      <Footer />
+    </div>
+  );
+};
 
 export default Home;
