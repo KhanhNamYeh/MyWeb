@@ -115,7 +115,7 @@ footer {
     align-items: center; /* Căn giữa các phần tử theo chiều ngang */
     justify-content: center;
     margin-top: 20px;
-    padding: 0 10%; /* Khoảng cách trống đều 2 bên */
+    padding: 0 5%; /* Khoảng cách trống đều 2 bên */
 }
 
 .books-container {
@@ -126,7 +126,7 @@ footer {
 }
 
 .book-item {
-    max-width: 200px; /* Giới hạn chiều rộng mỗi sách */
+    max-width: 300px; /* Giới hạn chiều rộng mỗi sách */
     width: 100%;
     text-align: center;
 }
