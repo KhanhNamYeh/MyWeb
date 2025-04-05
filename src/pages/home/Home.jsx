@@ -7,14 +7,13 @@ import "./home.css";
 
 // SearchBar và BookList vẫn nằm trong thư mục `home`
 import SearchBar from "./component/SearchBar";
-import BookList from "./component/BookList";
+import ProductList from "./component/ProductList";
 
 const Home = () => {
   return (
     <div className="home-container">
       <Navbar />
-      <SearchBar />
-      <BookList />
+      <ProductList />
       <Footer />
     </div>
   );
