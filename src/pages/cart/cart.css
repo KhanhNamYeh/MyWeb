@@ -1,20 +1,45 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-body {
-    background-color: rgba(184, 178, 178, 0.373);
-    font-family: 'Be Vietnam Pro', sans-serif;
-  }
+/* Đảm bảo html và body chiếm hết chiều cao */
+html, body {
+  height: 100%;
+}
 
-  footer {
-    background-color: #f1e8da;
-    padding: 20px;
-    text-align: center;
-    font-size: 18px;
-  }
+body {
+  background-color: rgba(184, 178, 178, 0.373);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;  /* Đặt các phần tử theo chiều dọc */
+  min-height: 100%;        /* Đảm bảo body có chiều cao ít nhất bằng chiều cao của cửa sổ */
+}
+
+/* Đảm bảo phần chính của trang giỏ hàng (cart) chiếm phần còn lại của không gian */
+.cart-container {
+  width: 80%;
+  margin: auto;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;            
+  min-height: 100%;       
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #f1e8da;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: auto; 
+}
 
 .navbar {
     display: flex;
@@ -29,15 +54,12 @@ body {
   }
   
   .cart-container {
-    background-color: white;
     width: 80%;
     margin: auto;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-weight: 400;
     font-size: 24px;
-    box-shadow: inset 0px 0px 30px #f5f1e8B3;
-    border: 2px solid #e1e1e1;
-    padding: 20px 50px; /* Thêm chút khoảng cách trên-dưới */
+    padding: 20px 0; /* Thêm chút khoảng cách trên-dưới */
   }
   
   /* Tiêu đề trang giỏ hàng */
@@ -144,135 +166,90 @@ body {
     background-color: #fff;
   }
 
-  .cart-buy {
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap; 
+.cart-buy {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-buy-address {
+  font-size: 24px;
+  line-height: 1.4;
+  width: 50%;
+  padding-right: 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.cart-buy-address button {
+  background-color: rgba(230, 227, 227, 0.373);
+  color: green;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.cart-buy-method {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+.cart-buy-cost {
+  margin-top: 20px;
+}
+
+.cart-payment {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.cart-payment button {
+  background-color: #658C65;
+  color: #F1E8DA;
+  border: none;
+  padding: 20px 30px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 45px;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media screen and (max-width: 1024px) {
+  .product-item {
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
   }
-  
-  .cart-buy-address {
-    font-size: 24px;
-    line-height: 1.4;
-    width: 50%;
-    padding-right: 20px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .product-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
-  
-  .cart-buy-address button {
-    background-color: rgba(230, 227, 227, 0.373);
-    color: green;
-    text-decoration: underline;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 0;
-    margin-top: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .product-item {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
-  
-  .cart-buy-method {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 50%;
-    margin-bottom: 15px;
+
+  .navbar {
+    padding: 10px 2%;
   }
-  
-  .cart-buy-cost {
-    margin-top: 20px;
+
+  .nav-links {
+    font-size: 16px;
   }
-  
-  .cart-payment {
-    text-align: right;
-    margin-top: 15px;
+
+  .search-bar {
+    max-width: 400px;
   }
-  
-  .cart-payment button {
-    background-color: #658C65;
-    color: #F1E8DA;
-    border: none;
-    padding: 20px 30px;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 700;
-    border-radius: 45px;
-  }
-      
-  /* Màn hình nhỏ hơn 992px (tablet, mobile) */
-  @media (max-width: 992px) {
-    .cart-container {
-      width: 90%;
-    }
-  
-    .cart-header {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      font-size: 18px;
-    }
-  
-    .product-info {
-      font-size: 20px;
-    }
-  
-    .cart-buy-address,
-    .cart-buy-method {
-      width: 100%;
-      margin-bottom: 10px;
-      align-items: flex-start;
-    }
-  }
-  
-  /* Màn hình nhỏ hơn 768px (tablet dọc, mobile) */
-  @media (max-width: 768px) {
-  
-    .cart-header {
-      display: none;
-    }
-  
-    .product {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .quantity-control {
-      margin-left: 0;
-    }
-  
-    .product-cost {
-      margin-left: 0;
-      margin-top: 10px;
-    }
-  
-    .cart-buy {
-      flex-direction: column;
-    }
-  
-    .cart-buy-address,
-    .cart-buy-method {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    .cart-payment {
-      text-align: left;
-    }
-  
-    button.del {
-      margin-top: 10px;
-    }
-  }
-  
-  /* Màn hình rất nhỏ (dưới ~576px) */
-  @media (max-width: 576px) {
-    .product-info {
-      font-size: 18px;
-    }
-  
-    .cart-payment button {
-      width: 100%;
-      font-size: 20px;
-      padding: 15px;
-      border-radius: 30px;
-    }
-  }
-  
+}

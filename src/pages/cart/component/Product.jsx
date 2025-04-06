@@ -2,23 +2,23 @@ import React from "react";
 
 const Product = ({ item, handleQuantityChange, handleRemove }) => {
   return (
-    <div className="product">
+    <div className="product-item">
+      <img
+        src={`${import.meta.env.BASE_URL}images/${item.image}`}  // Sử dụng BASE_URL của Vite
+        alt={item.title}
+        className="product-image"
+      />
       <div className="product-details">
-        <img src={item.image} alt={item.name} />
-        <div className="product-info">
-          <a>{item.name}</a>
-          <a>{item.author}</a>
-          <s>{item.price.toLocaleString('vi-VN')} vnd</s>
-          <a><strong>{item.sale.toLocaleString('vi-VN')} vnd</strong></a>
-        </div>
+        <p><strong>{item.title}</strong></p>
+        <p>Tác giả: {item.author}</p>
+        <p>Giá: {item.price.toLocaleString()} VND</p>
+        <p>Số lượng: 
+          <button onClick={() => handleQuantityChange(item.id, -1)}>-</button>
+          {item.quantity}
+          <button onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+        </p>
+        <button onClick={() => handleRemove(item.id)}>Xóa</button>
       </div>
-      <div className="quantity-control">
-        <button className="button" onClick={() => handleQuantityChange(item.id, -1)}>-</button>
-        <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-        <button className="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
-      </div>
-      <span className="product-cost">{(item.sale * item.quantity).toLocaleString('vi-VN')} vnd</span>
-      <button className="button del" onClick={() => handleRemove(item.id)}>Xóa</button>
     </div>
   );
 };
