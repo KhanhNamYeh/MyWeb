@@ -29,12 +29,15 @@ body {
   }
   
   .cart-container {
+    background-color: white;
     width: 80%;
     margin: auto;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-weight: 400;
     font-size: 24px;
-    padding: 20px 0; /* Thêm chút khoảng cách trên-dưới */
+    box-shadow: inset 0px 0px 30px #f5f1e8B3;
+    border: 2px solid #e1e1e1;
+    padding: 20px 50px; /* Thêm chút khoảng cách trên-dưới */
   }
   
   /* Tiêu đề trang giỏ hàng */

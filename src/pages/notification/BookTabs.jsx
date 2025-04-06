@@ -17,12 +17,21 @@ const newBooksData = [
  { id: '2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book1 },
  { id: '3', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book1 },
  { id: '4', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book1 },
+ { id: '3', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book1 },
+ { id: '4', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book1 },
 ];
 const oldBooksData = [
  { id: '1', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
  { id: '2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
+ { id: '1', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
+ { id: '2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
+ { id: '1', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
+ { id: '2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: 493000, image: book2 },
 ];
 const rentBooksData = [
+ { id: 'r1', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 },
+ { id: 'r2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 },
+ { id: 'r3', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 },
  { id: 'r1', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 },
  { id: 'r2', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 },
  { id: 'r3', name: "Erasure", author: "by Percival Everett", sale: 233000, price: null, image: book3 }, 

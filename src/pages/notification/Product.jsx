@@ -13,11 +13,11 @@ const items = [
 const Product = () => {
   return (
     <div className="m-5 mt-0">
-      <div className="product-header">Thong tin don hang</div>
+      <div className="product-header">Thông tin đơn hàng</div>
       {items.map((item) => (
         <div
           key={item.id}
-          className="row border-bottom border-2 border-dark mb-2 pb-2 justify-content-between align-items-center"
+          className="row border-bottom border-1 border-dark mb-2 pb-2 justify-content-between align-items-center"
         >
           <div className="col-3">
             <img src={item.image} alt="book" width="60px" height="92px" />

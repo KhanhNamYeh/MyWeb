@@ -17,23 +17,23 @@ const Notification = () => {
   return (
     <>
       <Navbar />
-      <div className="container mt-5 mb-5"> {/* Lưu ý: className nên là "container", không phải ".container" */}
+      <div className=".container mt-5 mb-5"> 
         <div className="main-panel-container">
           <div className="row g-0">
             <div className="notice col-md-4 left-panel p-5">
-              <div className="mx-2 mb-3 fw-bold fs-5">Thông báo</div>
-              <div>
+              <div className="mx-2 mb-3 fw-bold fs-1 mb-3">Thông báo</div>
+              <div className="notice-order">
                 <button
                   onClick={() => setActivePanel('general')}
-                  className={`${getButtonClass('general')} mx-5 px-3`} 
+                  className={`${getButtonClass('general')} mx-4 px-2`} 
                 >
                   Thông báo chung
                 </button>
               </div>
-              <div>
+              <div className="notice-order">
                 <button
                   onClick={() => setActivePanel('sales')}
-                  className={`${getButtonClass('sales')} mx-5 px-3`} 
+                  className={`${getButtonClass('sales')} mx-4 px-2`} 
                 >
                   Khuyến mãi
                 </button>
@@ -41,7 +41,7 @@ const Notification = () => {
               <div className="notice-order"> 
                 <button
                   onClick={() => setActivePanel('orders')}
-                  className={`${getButtonClass('orders')} mt-3 mx-2`} 
+                  className={`${getButtonClass('orders')} mx-4 px-2`} 
                 >
                   Đơn hàng
                 </button>

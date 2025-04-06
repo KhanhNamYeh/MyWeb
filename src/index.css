@@ -1,11 +1,12 @@
 .app-container {
-    min-height: 100vh;
+  min-height: 100vh;
     width: 100%;
-    background-color: #f8f8f8; 
+    background-color: #faf4dd; 
     background-image: linear-gradient(
       to right,
-      #d4d1ca, 
-      #faf4dd
+      #c8c6bf 0%, 
+      #d4d1ca 20%, 
+      #faf4dd 100%
     );
     background-repeat: no-repeat;
 }

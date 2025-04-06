@@ -1,0 +1,98 @@
+.user-container {
+    background-color: #f5f1e8B3;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px; 
+    overflow: hidden;
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.08); 
+    padding: 30px;
+}
+
+.user-profile {
+    width: 100%;
+    height: 630px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0px 0px 30px #f5f1e8B3;
+    border: 2px solid #e1e1e1;
+}
+
+.user-profile-img {
+    margin: 0 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.user-profile-img img {
+    width: 90%;
+}
+
+.user-profile-container {
+    padding: 0 20px; 
+    font-size: 16px;
+}
+
+.user-profile-container h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #555;
+    font-weight: normal; /* Chữ không quá đậm như trong hình mờ */
+    border-bottom: 1px solid #eee; /* Đường gạch dưới mờ */
+    padding-bottom: 10px;
+}
+
+.user-profile-info .user-info-item {
+    margin-bottom: 15px;
+    display: flex;  /* Đẩy label và value ra hai bên */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    font-size: 0.95em; /* Kích thước chữ nhỏ hơn một chút */
+    padding: 10px 10px; /* Thêm khoảng đệm */
+    border-bottom: 1px dashed #eee; /* Đường đứt nét phân cách mờ */
+}
+
+.user-profile-info .user-info-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none; /* Bỏ đường gạch cho mục cuối */
+}
+
+.user-info-item .label {
+    color: #666; /* Màu chữ nhạt hơn cho nhãn */
+    margin-right: 10px;
+}
+
+.user-info-item .value {
+    font-weight: 700px;
+    color: #333; 
+    text-align: center; 
+    word-break: break-all; 
+}
+
+.user-profile-info button {
+    color: #51504c;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #ffffffb3;
+    margin-left: 50px;
+    border: 1px solid #9e906c;
+    padding: 10px 80px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.user-likes {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0px 0px 30px #f5f1e8B3;
+    border: 2px solid #e1e1e1;
+}
+
+.user-history {
+    margin-top: 25px;
+    width: 100%;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0px 0px 30px #f5f1e8B3;
+    border: 2px solid #e1e1e1;
+}
+
