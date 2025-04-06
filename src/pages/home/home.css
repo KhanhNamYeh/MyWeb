@@ -12,11 +12,13 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(241, 232, 218);
-    padding: 10px 20px;
+    padding: 10px 8rem;
     width: 100%; 
     box-sizing: border-box; 
     position: relative;
     z-index: 100;
+    height: 70px;
+    box-shadow: 1px 0 5px 0px rgba(0, 0, 0, 0.1);
 }
 .logo-link {
     text-decoration: none; 
@@ -27,16 +29,17 @@ body {
   }
   
 .logo {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .nav-links {
+    font-size: 20px;
     list-style: none;
     display: flex;
     gap: 15px;
     margin: 0;
-    padding: 0;
+    padding: 0 4rem;
 }
 
 .nav-links li a {
@@ -166,6 +169,55 @@ footer {
   .product-item p {
     font-size: 14px;
     color: #555;
+<<<<<<< HEAD
     margin: 2px 0;
   }
   
+=======
+}
+
+@media screen and (max-width: 1050px) {
+    .navbar {
+        padding: 10px 6rem;
+    }
+    .nav-links {
+        font-size: 18px;
+        padding: 0 3rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .navbar {
+        padding: 10px 2rem;
+    }
+    .logo {
+        font-size: 28px;
+    }
+    .nav-links {
+        font-size: 12px;
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .navbar {
+        padding: 10px 1rem;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .nav-links {
+        font-size: 12px;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .navbar {
+        padding: 10px 1rem;
+    }
+    .nav-links {
+        padding: 0 0rem;
+    }
+}
+>>>>>>> origin/main

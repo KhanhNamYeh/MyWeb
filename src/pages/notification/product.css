@@ -1,0 +1,18 @@
+body {
+    font-size: 20px;
+}
+
+.product-header {
+    padding: 20px 0px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+button {
+    background-color: #c8dace00;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+}

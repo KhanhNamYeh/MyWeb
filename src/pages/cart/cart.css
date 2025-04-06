@@ -157,7 +157,7 @@ body {
   }
   
   .cart-buy-address button {
-    background-color: #fff;
+    background-color: rgba(230, 227, 227, 0.373);
     color: green;
     text-decoration: underline;
     border: none;

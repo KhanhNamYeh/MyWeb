@@ -1,0 +1,70 @@
+.container {
+    margin-left: 100px;
+}
+
+.main-panel-container {
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-panel {
+    font-size: 24px; 
+    font-weight: 700; 
+    background-color: #658C6580; 
+    height: 600px;
+    border-right: 1px solid white;
+}
+
+.right-panel {
+    padding: 50px;
+    background-color: #658c6562; 
+    height: 600px; 
+    overflow-y: auto; 
+}
+
+.notice-button {
+    background-color: #658c6500;  
+    color: black;               
+    font-size: 16px;            
+    font-weight: normal;         
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease; 
+    padding: 8px 16px;        
+    border-radius: 5px;       
+    text-align: left;
+    width: auto;              
+    margin-bottom: 10px;     
+}
+
+.notice-order .notice-button:not(.active-notice) {
+    color: black; 
+    font-size: 24px;            
+    font-weight: 700;           
+}
+
+.notice-order .notice-button.active-notice {
+    color: white;    
+    font-size: 24px;            
+    font-weight: 700;            
+}
+
+.notice-button.active-notice {
+    color: white;              
+}
+
+.notice-sale,
+.notice-general {
+    color: #333;
+}
+
+.notice-sale h4,
+.notice-general h4 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
