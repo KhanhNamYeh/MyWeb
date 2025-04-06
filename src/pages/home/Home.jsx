@@ -5,8 +5,7 @@ import Navbar from "../HeadAndFooter/Navbar";
 import Footer from "../HeadAndFooter/Footer";
 import "./home.css";
 
-// SearchBar và BookList vẫn nằm trong thư mục `home`
-import SearchBar from "./component/SearchBar";
+//Thanh Search nằm trong component ProductList
 import ProductList from "./component/ProductList";
 
 const Home = () => {

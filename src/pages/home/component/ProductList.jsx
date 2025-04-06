@@ -1,23 +1,16 @@
-// src/components/ProductList.jsx
 import React, { useState } from "react";
+import { useCart } from "../../cart/CartContext";
+import { useNavigate } from "react-router-dom";
+import { products } from "../../cart/component/product_Data"; // Import dữ liệu sản phẩm
 import SearchBar from "./SearchBar";
-import "../home.css";
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const ProductList = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
-  const products = [
-    { image: "erasure.jpg", title: "Erasure", author: "Percival Everett", genre: "Thiếu Nhi" },
-    { image: "harlem_shuffle.jpg", title: "Harlem Shuffle", author: "Colson Whitehead", genre: "Thiếu Nhi" },
-    { image: "native_nations.jpg", title: "Native Nations", author: "Kathleen Duval", genre: "Thiếu Nhi" },
-    { image: "this_motherless_land.jpg", title: "This Motherless Land", author: "Nikki May", genre: "Thiếu Nhi" },
-    { image: "erasure.jpg", title: "The Haunting", author: "Shirley Jackson", genre: "Kinh Dị" },
-    { image: "harlem_shuffle.jpg", title: "It", author: "Stephen King", genre: "Kinh Dị" },
-    { image: "native_nations.jpg", title: "Dracula", author: "Bram Stoker", genre: "Kinh Dị" },
-    { image: "this_motherless_land.jpg", title: "Pet Sematary", author: "Stephen King", genre: "Kinh Dị" }
-  ];
-
-  // Lọc theo từ khoá
   const lowerSearch = searchTerm.toLowerCase();
   const filtered = products.filter(p =>
     p.title.toLowerCase().includes(lowerSearch) ||
@@ -25,8 +18,12 @@ const ProductList = () => {
     p.genre.toLowerCase().includes(lowerSearch)
   );
 
-  // Lấy danh sách thể loại còn tồn tại sau lọc
   const genres = [...new Set(filtered.map(p => p.genre))];
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    navigate("/cart");
+  };
 
   return (
     <div className="product-list-wrapper">
@@ -45,8 +42,25 @@ const ProductList = () => {
                     alt={product.title}
                     className="product-image"
                   />
-                  <h3>{product.title}</h3>
-                  <p>{product.author}</p>
+
+                  <p><strong>Tên:</strong> {product.title}</p>
+                  <p><strong>Tác giả:</strong> {product.author}</p>
+                  <p><strong>Giá Tiền:</strong> {product.price.toLocaleString()} đ</p>
+
+                  <div className="product-buttons">
+                    <button
+                      className="buy-now"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Mua ngay
+                    </button>
+                    <button
+                      className="add-to-cart"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      <ShoppingCartIcon style={{ marginRight: 8 }} /> Thêm vào giỏ hàng
+                    </button>
+                  </div>
                 </div>
               ))
             }
