@@ -3,6 +3,7 @@ import './user.css';
 import Navbar from '../HeadAndFooter/Navbar';
 import Footer from '../HeadAndFooter/Footer';
 import ai from "/images/ai.png";
+import { Favorite } from '@mui/icons-material';
 
 const userData = {name: "Erasure", login: "abc123", password: "123456", email: "abcde@gmail.com", phone: "0123456"};
 
@@ -56,10 +57,73 @@ const User = () => (
           </div>
           <div className="col-6">
             <div className="user-likes">
-              <div>Mục ưa thích</div>
+              <div className="user-likes-author">Tac giả ưa thích</div>
+            <div className="user-likes-tag">
+              <img src={ai} alt="User" className="user-image" />
+              <div className="user-info">
+                <a>Harlem Shuffle</a>
+                <a>New York</a>
+              </div>
+              <div className="user-actions">
+              <a className="like-count">3</a>
+              <a className="favorite-action"><Favorite /></a>
+              </div>
+            </div>
+            <div className="user-likes-tag">
+              <img src={ai} alt="User" className="user-image" />
+              <div className="user-info">
+                <a>Harlem Shuffle</a>
+                <a>New York</a>
+              </div>
+              <div className="user-actions">
+              <a className="like-count">3</a>
+              <a className="favorite-action"><Favorite /></a>
+              </div>
+            </div>
+            <div className="user-likes-tag">
+              <img src={ai} alt="User" className="user-image" />
+              <div className="user-info">
+                <a>Harlem Shuffle</a>
+                <a>New York</a>
+              </div>
+              <div className="user-actions">
+              <a className="like-count">3</a>
+              <a className="favorite-action"><Favorite /></a>
+              </div>
+            </div>
             </div>
             <div className="user-history">
+              <h2>Lịch sử giao dịch</h2> 
 
+              <div className="table-responsive">
+                <table className="history-table">
+                  <thead>
+                    <tr>
+                      <th>Sản phẩm</th>
+                      <th>Số lượng</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Erasure</td>
+                      <td>2</td>
+                      <td><span className="status status-delivered">Đã giao hàng</span></td> 
+                    </tr>
+                    <tr>
+                      <td>Erasure</td>
+                      <td>2</td>
+                      <td><span className="status status-processing">Đang trên đường</span></td>
+                    </tr>
+                    <tr>
+                      <td>Erasure</td>
+                      <td>2</td>
+                      <td><span className="status status-cancelled">Đang kiểm tra</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="/notification" className="user-history-full">Chi tiết</a>
+              </div>
             </div>
           </div>
         </div>

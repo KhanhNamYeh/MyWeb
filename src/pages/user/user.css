@@ -81,18 +81,230 @@
 
 .user-likes {
     width: 100%;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0px 0px 30px #f5f1e8B3;
-    border: 2px solid #e1e1e1;
+    height: 300px;
+}
+
+.user-likes-author {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.user-likes-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Khoảng cách giữa các phần tử con */
+  max-width: 450px; /* Giới hạn chiều rộng tối đa */
+  width: 100%;      /* Chiếm toàn bộ chiều rộng khả dụng (đến max-width) */
+  margin: 20px 10px; /* Căn giữa component */
+  padding: 10px 15px; /* Padding bên trong */
+  border-radius: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07); /* Shadow tinh tế */
+  border: 1px solid #eee; /* Viền rất nhẹ */
+  font-size: 14px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển động */
+}
+
+.user-likes-tag:hover {
+  box-shadow: -3px 3px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Nhấc lên một chút khi hover */
+}
+
+/* --- Hình ảnh --- */
+.user-likes-tag .user-image { /* Chọn ảnh bên trong container */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* Hình tròn */
+  object-fit: cover;  /* Đảm bảo ảnh vừa vặn, không méo */
+  flex-shrink: 0;     
+}
+
+/* --- Thông tin User --- */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35; /* Khoảng cách dòng */
+}
+
+.user-info a {
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+/* Tên (Thẻ a đầu tiên) */
+.user-info a:first-child {
+  font-weight: 600; /* Đậm hơn */
+  color: #222; /* Màu đen/xám đậm */
+  margin-bottom: 1px; /* Khoảng cách nhỏ tới địa điểm */
+}
+
+/* Địa điểm (Thẻ a thứ hai) */
+.user-info a:nth-child(2) {
+  font-size: 0.88em; /* Nhỏ hơn một chút */
+  color: #777; /* Màu xám nhạt hơn */
+}
+
+/* --- Khu vực Actions (Số lượt thích & Tim) --- */
+.user-actions {
+  margin-left: auto; /* Đẩy sang phải */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Khoảng cách giữa số và tim */
+}
+
+.like-count {
+  font-weight: 500; 
+  font-size: 0.9em;
+  text-decoration: none;
+  color: gray;
+}
+
+.favorite-action {
+  color: #e74c3c; /* Màu đỏ cho tim */
+  display: flex; /* Giúp căn chỉnh SVG bên trong nếu có */
+  align-items: center;
+  cursor: pointer; /* Con trỏ hình bàn tay khi rê chuột */
+  transition: transform 0.2s ease; /* Hiệu ứng khi nhấn */
+}
+
+.favorite-action:hover {
+  transform: scale(1.1); /* Phóng to nhẹ icon khi hover */
+}
+
+/* Giả sử <Favorite /> là SVG */
+.favorite-action svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor; /* Lấy màu từ .favorite-action */
 }
 
 .user-history {
-    margin-top: 25px;
-    width: 100%;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0px 0px 30px #f5f1e8B3;
-    border: 2px solid #e1e1e1;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  max-width: 800px; 
+  width: 95%;
 }
 
+.user-history h2 {
+  text-align: left;
+  font-size: 1em;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+/* --- Responsive Wrapper --- */
+.table-responsive {
+  width: 100%;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.history-table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.history-table tbody td {
+  padding: 15px;
+  border-bottom: 1px solid #f1f1f1;
+  color: #555;
+  vertical-align: middle;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.history-table tbody tr:hover {
+  background-color: #f5f1e8B3;
+}
+
+.history-table th:nth-child(1),
+.history-table td:nth-child(1) {
+   width: 60%; /* Ví dụ: Cho cột sản phẩm chiếm nhiều không gian hơn */
+}
+
+
+/* Căn phải cho cột Số lượng (Cột 2) */
+.history-table th:nth-child(2), /* Header Số lượng */
+.history-table td:nth-child(2) { /* Data Số lượng */
+  text-align: center;
+  width: 15%; 
+}
+
+/* Căn giữa cho cột Trạng thái (Cột 3) */
+.history-table th:nth-child(3), /* Header Trạng thái */
+.history-table td:nth-child(3) { /* Data Trạng thái */
+   text-align: center;
+   width: 25%; /* Ví dụ: Đặt chiều rộng */
+}
+
+/* --- Trạng thái (Status Badges - Giữ nguyên) --- */
+.status {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.status-delivered {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #218838;
+}
+
+.status-processing {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #dda00a;
+}
+
+.status-cancelled {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #c82333;
+}
+
+/* --- CSS Responsive (Giữ nguyên hoặc điều chỉnh nếu cần) --- */
+@media (max-width: 768px) {
+  .user-history {
+    padding: 15px;
+    width: 100%;
+    margin: 15px 0;
+  }
+  .user-history h2 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+  .history-table {
+    font-size: 13px;
+  }
+   .history-table th,
+   .history-table td {
+      padding: 10px 8px;
+   }
+   .status {
+     padding: 4px 8px;
+     font-size: 0.75em;
+   }
+}
+
+.user-history-full {
+    margin-top: 40px;
+    margin-left: 85%;
+    margin-bottom: 0;
+}
