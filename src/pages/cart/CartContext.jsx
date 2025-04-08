@@ -11,17 +11,20 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   // Hàm thêm sản phẩm vào giỏ hàng
-  const addToCart = (product) => {
+  const addToCart = (product, quantity = 1) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find(item => item.id === product.id);
       if (existingProduct) {
         return prevCart.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
         );
       }
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevCart, { ...product, quantity }];
     });
   };
+  
 
   // Hàm thay đổi số lượng sản phẩm
   const updateQuantity = (id, delta) => {

@@ -205,6 +205,22 @@ footer {
     outline: none;
 }
 
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 16px;
+    text-align: center;
+    line-height: 16px;
+  }
+  
 /* ==================== RESPONSIVE STYLES ==================== */
 @media screen and (max-width: 1024px) {
     .product-item {
@@ -219,7 +235,7 @@ footer {
         max-width: calc(50% - 20px);
     }
 }
-
+ 
 @media screen and (max-width: 480px) {
     .product-item {
         flex: 1 1 100%;

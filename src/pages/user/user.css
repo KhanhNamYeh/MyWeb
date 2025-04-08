@@ -278,33 +278,36 @@
   color: #c82333;
 }
 
-/* --- CSS Responsive (Giữ nguyên hoặc điều chỉnh nếu cần) --- */
-@media (max-width: 768px) {
-  .user-history {
-    padding: 15px;
-    width: 100%;
-    margin: 15px 0;
+/* ==================== RESPONSIVE STYLES ==================== */
+@media screen and (max-width: 1024px) {
+  .product-item {
+      flex: 1 1 calc(33.33% - 20px);
+      max-width: calc(33.33% - 20px);
   }
-  .user-history h2 {
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-  }
-  .history-table {
-    font-size: 13px;
-  }
-   .history-table th,
-   .history-table td {
-      padding: 10px 8px;
-   }
-   .status {
-     padding: 4px 8px;
-     font-size: 0.75em;
-   }
 }
 
-.user-history-full {
-    margin-top: 40px;
-    margin-left: 85%;
-    margin-bottom: 0;
+@media screen and (max-width: 768px) {
+  .product-item {
+      flex: 1 1 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+  }
+
+  .navbar {
+      padding: 10px 2%;
+  }
+
+  .nav-links {
+      font-size: 16px;
+  }
+
+  .search-bar {
+      max-width: 400px;
+  }
 }

@@ -1,11 +1,11 @@
-// src/App.js
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, User, Wishlist, Cart, Notification } from "./pages";
-import { CartProvider } from "./pages/cart/CartContext"; // Đảm bảo import đúng đường dẫn
+import { CartProvider } from "./pages/cart/CartContext";
+import {ProductDetail } from "./pages/product_detail/ProductDetail";
 
 function App() {
   return (
-    <CartProvider>  {/* Bọc toàn bộ Routes trong CartProvider */}
+    <CartProvider>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -13,7 +13,9 @@ function App() {
           <Route path="/notification" element={<Notification />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/user" element={<User />} />
-        </Routes>
+          
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes> 
       </Router>
     </CartProvider>
   );
