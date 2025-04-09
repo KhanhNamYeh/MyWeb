@@ -1,14 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, User, Wishlist, Cart, Notification } from "./pages";
 import { CartProvider } from "./pages/cart/CartContext";
-import {ProductDetail } from "./pages/product_detail/ProductDetail";
+import ProductDetail  from "./pages/product_detail/ProductDetail";
 
+import Login from "./pages/LoginAndResgister/Login";
+import Register from "./pages/LoginAndResgister/Register";
 function App() {
   return (
     <CartProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          <Route path="/home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/wishlist" element={<Wishlist />} />

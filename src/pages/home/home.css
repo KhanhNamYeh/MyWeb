@@ -220,6 +220,25 @@ footer {
     text-align: center;
     line-height: 16px;
   }
+
+  .logout-btn {
+    background-color: #658C65;         
+    color: #fff;                       /* Màu chữ trắng, không đổi */
+    padding: 12px 16px;                /* Padding như các nút khác */
+    font-size: 1rem;
+    border-radius: 30px;               /* Bo tròn */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;          
+    display: inline-flex;              /* Để căn chỉnh theo hàng ngang với các mục khác */
+    align-items: center;
+  }
+  
+  /* Hiệu ứng hover: chỉ nhảy lên, không thay đổi màu sắc */
+  .logout-btn:hover {
+    transform: translateY(-3px);
+  }
   
 /* ==================== RESPONSIVE STYLES ==================== */
 @media screen and (max-width: 1024px) {

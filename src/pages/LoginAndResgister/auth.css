@@ -1,0 +1,146 @@
+/* Container chung, canh giữa màn hình */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Hộp chứa form đăng nhập / đăng ký */
+  .auth-box {
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;         /* Bo tròn hộp hơn */
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tiêu đề form */
+  .auth-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Form */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Nhóm input */
+  .form-group {
+    text-align: left;
+  }
+  
+  /* Nhãn cho input */
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  /* Input chung với bo tròn */
+  .form-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;     /* Bo tròn các góc input */
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  .form-input:focus {
+    border-color: #87CEFA;  /* Màu xanh lam khi focus */
+  }
+  
+  /* Nút chính chung với bo tròn */
+  .auth-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;     /* Bo tròn nút */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  /* Áp dụng cho nút đăng nhập, đăng ký và tạo tài khoản */
+  .login-btn,
+  .register-btn,
+  .create-account-btn {
+    background-color: #658C65; /* Mã màu nền */
+    color: #fff;               /* Màu chữ mặc định */
+    padding: 12px 16px;        /* Padding để giữ kích thước */
+    font-size: 1rem;
+    border-radius: 30px;       /* Bo tròn nút */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;     /* Đảm bảo link không có gạch chân */
+    border: none;              /* Không có đường viền */
+    width: 100%;               /* Chiếm 100% chiều rộng */
+    box-sizing: border-box;    /* Bao gồm padding trong width */
+  }
+  
+  /* Hiệu ứng hover: chỉ nhảy lên, giữ nguyên màu nền và màu chữ */
+  .login-btn:hover,
+  .register-btn:hover,
+  .create-account-btn:hover {
+    transform: translateY(-3px);
+    background-color: #658C65;  /* Giữ nguyên màu nền */
+    color: #fff;                /* Giữ nguyên màu chữ */
+  }
+  
+  /* Chính sách và các liên kết phụ */
+  .policy-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  .policy-text a {
+    text-decoration: underline;
+    color: #555;
+  }
+  
+  .forgot-link {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hộp riêng cho nút Tạo tài khoản mới */
+  .create-account-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Ngoại lệ: Style cho group mật khẩu (nếu có ô Ẩn/Hiện) */
+  .password-group {
+    position: relative;
+  }
+  .password-input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+  }
+  

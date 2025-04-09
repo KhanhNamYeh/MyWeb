@@ -26,7 +26,6 @@ const ProductList = () => {
 
   const handleAddToCartOnly = (product) => {
     addToCart(product);
-    // Không chuyển trang
   };
 
   return (
