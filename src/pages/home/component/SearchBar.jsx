@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = ({ searchTerm, onSearchChange }) => {
+const SearchBar = ({ onSearchSubmit }) => {
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
+
+  const handleSearchClick = () => {
+    onSearchSubmit(localSearchTerm);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearchClick();
+    }
+  };
+
   return (
     <div className="search-bar">
-      <input 
-        type="text" 
-        placeholder="Tìm kiếm sách..." 
-        value={searchTerm}
-        onChange={(e) => onSearchChange(e.target.value)}
+      <input
+        type="text"
+        placeholder="Search for books..."
+        value={localSearchTerm}
+        onChange={(e) => setLocalSearchTerm(e.target.value)}
+        onKeyDown={handleKeyDown}
         style={{ padding: "8px", width: "70%" }}
       />
-      <Button 
-        variant="contained" 
-        color="primary" 
+      <Button
+        variant="contained"
+        color="primary"
         endIcon={<SearchIcon />}
-        style={{ padding: "8px", width: "10%" }}
+        style={{ padding: "8px", width: "auto", marginLeft: "5px" }}
+        onClick={handleSearchClick}
       >
       </Button>
     </div>

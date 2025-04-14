@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Tạo Context giỏ hàng
+// Create cart context
 const CartContext = createContext();
 
 export const useCart = () => {
@@ -10,7 +10,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Hàm thêm sản phẩm vào giỏ hàng
+  // Function to add a product to the cart
   const addToCart = (product, quantity = 1) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find(item => item.id === product.id);
@@ -24,23 +24,23 @@ export const CartProvider = ({ children }) => {
       return [...prevCart, { ...product, quantity }];
     });
   };
-  
 
-  // Hàm thay đổi số lượng sản phẩm
+
+  // Function to update the quantity of a product
   const updateQuantity = (id, delta) => {
-    setCart(prevCart => 
+    setCart(prevCart =>
       prevCart.map(item =>
         item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
       )
     );
   };
 
-  // Hàm xóa sản phẩm khỏi giỏ hàng
+  // Function to remove a product from the cart
   const removeFromCart = (id) => {
     setCart(prevCart => prevCart.filter(item => item.id !== id));
   };
 
-  // Cung cấp cart, addToCart, updateQuantity, removeFromCart
+  // Provide cart, addToCart, updateQuantity, removeFromCart
   return (
     <CartContext.Provider value={{ cart, addToCart, updateQuantity, removeFromCart }}>
       {children}

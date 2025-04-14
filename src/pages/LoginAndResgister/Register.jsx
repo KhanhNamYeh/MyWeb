@@ -1,4 +1,3 @@
-// src/auth/Register.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
@@ -12,31 +11,28 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Kiểm tra các ô thông tin đã nhập đầy đủ
     if (name.trim() === "" || phoneOrEmail.trim() === "" || password.trim() === "" || confirmPw.trim() === "") {
-      alert("Vui lòng nhập đầy đủ thông tin");
+      alert("Please fill in all information");
       return;
     }
     if (password !== confirmPw) {
-      alert("Mật khẩu không trùng khớp!");
+      alert("Passwords do not match!");
       return;
     }
-    // Gọi API đăng ký, xử lý logic, v.v.
-    console.log("Tạo tài khoản với:", { name, phoneOrEmail, password });
-    // Sau khi đăng ký thành công, điều hướng về trang Home hoặc trang Login tùy theo yêu cầu
+    console.log("Creating account with:", { name, phoneOrEmail, password });
     navigate("/home");
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2 className="auth-title">Tạo tài khoản mới</h2>
+        <h2 className="auth-title">Create a new account</h2>
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label className="form-label">Tên của bạn</label>
+            <label className="form-label">Your name</label>
             <input
               type="text"
-              placeholder="Tên hiển thị"
+              placeholder="Display name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="form-input"
@@ -44,10 +40,10 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
-            <label className="form-label">Email hoặc số điện thoại</label>
+            <label className="form-label">Email or phone number</label>
             <input
               type="text"
-              placeholder="Email hoặc số điện thoại"
+              placeholder="Email or phone number"
               value={phoneOrEmail}
               onChange={(e) => setPhoneOrEmail(e.target.value)}
               className="form-input"
@@ -55,10 +51,10 @@ const Register = () => {
             />
           </div>
           <div className="form-group password-group">
-            <label className="form-label">Mật khẩu</label>
+            <label className="form-label">Password</label>
             <input
               type="password"
-              placeholder="Mật khẩu"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-input"
@@ -66,26 +62,26 @@ const Register = () => {
             />
           </div>
           <div className="form-group password-group">
-            <label className="form-label">Nhập lại mật khẩu</label>
+            <label className="form-label">Re-enter password</label>
             <input
               type="password"
-              placeholder="Xác nhận mật khẩu"
+              placeholder="Confirm password"
               value={confirmPw}
               onChange={(e) => setConfirmPw(e.target.value)}
               className="form-input"
               required
             />
           </div>
-          <button type="submit" className="auth-button register-btn">
-            Đăng ký
+          <button type="submit" className="auth-button login-btn mt-5">
+            Sign Up
           </button>
         </form>
         <p className="policy-text">
-          Bằng việc đăng ký, bạn đã đồng ý với &nbsp; 
-          <Link to="#">Điều khoản dịch vụ & Chính sách bảo mật</Link>
+          By signing up, you agree to our &nbsp;
+          <Link to="#">Terms of Service & Privacy Policy</Link>
         </p>
         <Link to="/login" className="forgot-link">
-          Đã có tài khoản? Đăng nhập
+          Already have an account? Log in
         </Link>
       </div>
     </div>

@@ -9,15 +9,14 @@ const Footer = () => {
       sx={{
         backgroundColor: "#f4ede4",
         p: 4,
-        width: "100%",  // Đảm bảo footer chiếm toàn bộ chiều rộng màn hình
-        boxSizing: "border-box", // Đảm bảo padding không làm mất đi chiều rộng
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
       <Grid container spacing={4} justifyContent="center">
-        
-        {/* Cột Tải Ứng Dụng */}
+
         <Grid item xs={12} sm={3} textAlign="center">
-          <Typography fontWeight="bold">TẢI ỨNG DỤNG</Typography>
+          <Typography fontWeight="bold">DOWNLOAD APP</Typography>
           <Box
             sx={{
               width: 50,
@@ -29,9 +28,9 @@ const Footer = () => {
           />
         </Grid>
 
-        {/* Cột Thanh Toán */}
+        {/* Payment Column */}
         <Grid item xs={12} sm={3} textAlign="center">
-          <Typography fontWeight="bold">THANH TOÁN</Typography>
+          <Typography fontWeight="bold">PAYMENT</Typography>
           <Box display="flex" justifyContent="center" gap={1} mt={1}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width={40} />
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" width={40} />
@@ -39,9 +38,9 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        {/* Cột Theo Dõi Chúng Tôi */}
+        {/* Follow Us Column */}
         <Grid item xs={12} sm={3} textAlign="center">
-          <Typography fontWeight="bold">THEO DÕI CHÚNG TÔI</Typography>
+          <Typography fontWeight="bold">FOLLOW US</Typography>
           <Box display="flex" justifyContent="center" gap={1} mt={1}>
             <Facebook sx={{ fontSize: 30 }} />
             <Instagram sx={{ fontSize: 30 }} />
@@ -49,15 +48,15 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        {/* Cột Cá Nhân Hóa */}
+        {/* Personalize Column */}
         <Grid item xs={12} sm={3} textAlign="center">
-          <Typography fontWeight="bold">CÁ NHÂN HÓA</Typography>
+          <Typography fontWeight="bold">PERSONALIZE</Typography>
           <Box display="flex" flexDirection="column" mt={1}>
             <Link href="#" underline="hover" color="inherit">
-              HỖ TRỢ
+              SUPPORT
             </Link>
             <Link href="#" underline="hover" color="inherit">
-              TIN TỨC
+              NEWS
             </Link>
           </Box>
         </Grid>

@@ -23,7 +23,7 @@ const ProductDetail = () => {
   const product = products.find(p => p.id === parseInt(id));
 
   if (!product) {
-    return <div>Sản phẩm không tồn tại.</div>;
+    return <div>Product not found.</div>;
   }
 
   const handleAddToCart = () => {
@@ -50,7 +50,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <>
+    <div className="home-container">
       <Navbar />
 
       <div className="product-detail-page">
@@ -64,10 +64,10 @@ const ProductDetail = () => {
           </div>
           <div className="product-detail-right">
             <h2 className="product-title">{product.title}</h2>
-            <p><strong>Tác giả:</strong> {product.author}</p>
-            <p><strong>Thể loại:</strong> {product.genre}</p>
-            <p><strong>Giá:</strong> {product.price.toLocaleString()} đ</p>
-            <p><strong>Mô tả:</strong> Sách này rất hấp dẫn và thú vị...</p>
+            <p><strong>Author:</strong> {product.author}</p>
+            <p><strong>Genre:</strong> {product.genre}</p>
+            <p><strong>Price:</strong> {product.price.toLocaleString()} VND</p>
+            <p><strong>Description:</strong> This book is very engaging and interesting...</p>
 
             <div className="quantity-control">
               <button onClick={handleDecrease}><RemoveIcon /></button>
@@ -76,31 +76,31 @@ const ProductDetail = () => {
             </div>
 
             <div className="product-detail-buttons">
-              <button className="buy-now" onClick={handleBuyNow}>Mua ngay</button>
+              <button className="buy-now" onClick={handleBuyNow}>Buy Now</button>
               <button className="add-to-cart" onClick={handleAddToCart}>
-                <ShoppingCartIcon style={{ fontSize: 18 }} /> Thêm vào giỏ hàng
+                <ShoppingCartIcon style={{ fontSize: 18 }} /> Add to Cart
               </button>
             </div>
 
             {added && (
               <div className="success-message">
                 <CheckCircleIcon style={{ color: 'green' }} />
-                Đã thêm vào giỏ hàng thành công!
+                Added to cart successfully!
               </div>
             )}
           </div>
         </div>
 
         <div className="product-summary">
-          <h3>Tóm tắt nội dung</h3>
+          <h3>Content Summary</h3>
           <p>
-            Cuốn sách kể về hành trình đầy cảm hứng của nhân vật chính, vượt qua những khó khăn, thử thách để đạt được ước mơ. Tác phẩm mang lại nhiều bài học sâu sắc và giá trị về cuộc sống.
+            The book tells the inspiring journey of the main character, overcoming difficulties and challenges to achieve their dreams. The work brings many profound and valuable lessons about life.
           </p>
         </div>
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

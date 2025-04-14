@@ -18,7 +18,7 @@ function Header() {
           <NotificationsIcon />
         </IconButton>
 
-        <Typography>Chào, user01</Typography>
+        <Typography>Hello, user01</Typography>
 
         <IconButton>
           <ShoppingCartIcon />
@@ -27,7 +27,7 @@ function Header() {
         <IconButton>
           <FavoriteIcon />
         </IconButton>
-        
+
       </Toolbar>
     </AppBar>
   );

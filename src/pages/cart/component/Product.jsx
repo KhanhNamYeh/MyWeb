@@ -1,11 +1,11 @@
 import React from "react";
-import "./product.css"; 
+import "./product.css";
 
 const Product = ({ item, handleQuantityChange, handleRemove }) => {
   return (
     <div className="cart-product-item">
       <img
-        src={`${import.meta.env.BASE_URL}images/${item.image}`}  
+        src={`${import.meta.env.BASE_URL}images/${item.image}`}
         alt={item.title}
         className="cart-product-image"
       />
@@ -18,11 +18,11 @@ const Product = ({ item, handleQuantityChange, handleRemove }) => {
           <span>{item.price.toLocaleString()} vnd</span>
         </div>
         <div className="cart-product-quantity-selector">
-          <button onClick={() => handleQuantityChange(item.id, -1)} aria-label="Giảm số lượng">-</button>
+          <button onClick={() => handleQuantityChange(item.id, -1)} aria-label="Decrease quantity">-</button>
           <span>{item.quantity}</span>
-          <button onClick={() => handleQuantityChange(item.id, 1)} aria-label="Tăng số lượng">+</button>
+          <button onClick={() => handleQuantityChange(item.id, 1)} aria-label="Increase quantity">+</button>
         </div>
-        <button className="cart-product-actions" onClick={() => handleRemove(item.id)}>Xóa</button>
+        <button className="cart-product-actions" onClick={() => handleRemove(item.id)}>Remove</button>
       </div>
     </div>
   );

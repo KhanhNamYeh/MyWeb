@@ -1,203 +1,289 @@
 .user-container {
-    background-color: #f5f1e8B3;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 20px; 
-    overflow: hidden;
-    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.08); 
-    padding: 30px;
+  background-color: rgba(245, 241, 232, 0.7);
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .user-profile {
-    width: 100%;
-    height: 630px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0px 0px 30px #f5f1e8B3;
-    border: 2px solid #e1e1e1;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0px 0px 30px rgba(245, 241, 232, 0.7);
+  border: 2px solid #e1e1e1;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .user-profile-img {
-    margin: 0 100px;
-    display: flex;
-    justify-content: center;
+  margin: 20px auto 20px auto;
+  display: flex;
+  justify-content: center;
+  max-width: 250px;
 }
 
 .user-profile-img img {
-    width: 90%;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .user-profile-container {
-    padding: 0 20px; 
-    font-size: 16px;
+  padding: 0 20px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 .user-profile-container h2 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: #555;
-    font-weight: normal; /* Chữ không quá đậm như trong hình mờ */
-    border-bottom: 1px solid #eee; /* Đường gạch dưới mờ */
-    padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 1.6em;
+  text-align: center;
 }
 
 .user-profile-info .user-info-item {
-    margin-bottom: 15px;
-    display: flex;  /* Đẩy label và value ra hai bên */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    font-size: 0.95em; /* Kích thước chữ nhỏ hơn một chút */
-    padding: 10px 10px; /* Thêm khoảng đệm */
-    border-bottom: 1px dashed #eee; /* Đường đứt nét phân cách mờ */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+  padding: 10px 10px;
+  border-bottom: 1px dashed #eee;
 }
 
-.user-profile-info .user-info-item:last-child {
-    margin-bottom: 0;
-    border-bottom: none; /* Bỏ đường gạch cho mục cuối */
+.user-profile-info .user-info-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .user-info-item .label {
-    color: #666; /* Màu chữ nhạt hơn cho nhãn */
-    margin-right: 10px;
+  color: #666;
+  margin-right: 10px;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
 .user-info-item .value {
-    font-weight: 700px;
-    color: #333; 
-    text-align: center; 
-    word-break: break-all; 
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  word-break: break-all;
+  flex-grow: 1;
 }
 
 .user-profile-info button {
-    color: #51504c;
-    text-decoration: none;
-    font-size: 16px;
-    background-color: #ffffffb3;
-    margin-left: 50px;
-    border: 1px solid #9e906c;
-    padding: 10px 80px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+  color: #51504c;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-left: auto;
+  border: 1px solid #9e906c;
+  padding: 8px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.user-profile-info button:hover {
+  background-color: #9e906c;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .user-likes {
-    width: 100%;
-    height: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  background: #f8f9fa;
 }
 
+.user-likes.has-waves {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 15px; /* Match user-profile radius or specific design */
+}
+
+.user-likes .user-likes-content {
+  position: relative;
+  z-index: 1;
+}
+
+.user-likes.has-waves .user-likes-content {
+  padding: 20px; /* Add padding back when waves are present */
+  color: white; /* Change text color for wave background */
+}
+
+
 .user-likes-author {
-    font-weight: 700;
-    font-size: 30px;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.user-likes.has-waves .user-likes-author {
+  color: white; /* Adjust color for wave background */
+  text-align: center;
 }
 
 .user-likes-tag {
   display: flex;
   align-items: center;
-  gap: 12px; /* Khoảng cách giữa các phần tử con */
-  max-width: 450px; /* Giới hạn chiều rộng tối đa */
-  width: 100%;      /* Chiếm toàn bộ chiều rộng khả dụng (đến max-width) */
-  margin: 20px 10px; /* Căn giữa component */
-  padding: 10px 15px; /* Padding bên trong */
+  gap: 12px;
+  max-width: 450px;
+  width: 100%;
+  margin: 15px 0px;
+  padding: 10px 15px;
   border-radius: 50px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07); /* Shadow tinh tế */
-  border: 1px solid #eee; /* Viền rất nhẹ */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  border: 1px solid #eee;
   font-size: 14px;
-  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển động */
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.user-likes.has-waves .user-likes-tag {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
 }
 
 .user-likes-tag:hover {
-  box-shadow: -3px 3px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px); /* Nhấc lên một chút khi hover */
+  box-shadow: -3px 3px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-/* --- Hình ảnh --- */
-.user-likes-tag .user-image { /* Chọn ảnh bên trong container */
+.user-likes.has-waves .user-likes-tag:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: none;
+  box-shadow: none;
+}
+
+.user-likes-tag .user-image {
   width: 45px;
   height: 45px;
-  border-radius: 50%; /* Hình tròn */
-  object-fit: cover;  /* Đảm bảo ảnh vừa vặn, không méo */
-  flex-shrink: 0;     
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-/* --- Thông tin User --- */
 .user-info {
   display: flex;
   flex-direction: column;
-  line-height: 1.35; /* Khoảng cách dòng */
+  line-height: 1.35;
+  flex-grow: 1;
 }
 
 .user-info a {
-  text-decoration: none; /* Bỏ gạch chân */
+  text-decoration: none;
 }
 
-/* Tên (Thẻ a đầu tiên) */
 .user-info a:first-child {
-  font-weight: 600; /* Đậm hơn */
-  color: #222; /* Màu đen/xám đậm */
-  margin-bottom: 1px; /* Khoảng cách nhỏ tới địa điểm */
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1px;
 }
 
-/* Địa điểm (Thẻ a thứ hai) */
 .user-info a:nth-child(2) {
-  font-size: 0.88em; /* Nhỏ hơn một chút */
-  color: #777; /* Màu xám nhạt hơn */
+  font-size: 0.88em;
+  color: #777;
 }
 
-/* --- Khu vực Actions (Số lượt thích & Tim) --- */
+.user-likes.has-waves .user-info a {
+    color: white;
+}
+.user-likes.has-waves .user-info a:nth-child(2) {
+    color: #eee;
+}
+
 .user-actions {
-  margin-left: auto; /* Đẩy sang phải */
+  margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 8px; /* Khoảng cách giữa số và tim */
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .like-count {
-  font-weight: 500; 
+  font-weight: 500;
   font-size: 0.9em;
   text-decoration: none;
   color: gray;
 }
 
-.favorite-action {
-  color: #e74c3c; /* Màu đỏ cho tim */
-  display: flex; /* Giúp căn chỉnh SVG bên trong nếu có */
-  align-items: center;
-  cursor: pointer; /* Con trỏ hình bàn tay khi rê chuột */
-  transition: transform 0.2s ease; /* Hiệu ứng khi nhấn */
+.user-likes.has-waves .like-count {
+    color: #eee;
 }
+
+.favorite-action {
+  color: #e74c3c;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-likes.has-waves .favorite-action {
+    color: #ffc107; /* Yellow like in the original wave card */
+}
+
 
 .favorite-action:hover {
-  transform: scale(1.1); /* Phóng to nhẹ icon khi hover */
+  transform: scale(1.1);
 }
 
-/* Giả sử <Favorite /> là SVG */
 .favorite-action svg {
   width: 18px;
   height: 18px;
-  fill: currentColor; /* Lấy màu từ .favorite-action */
+  fill: currentColor;
 }
 
 .user-history {
   background-color: #ffffff;
   padding: 15px 20px;
-  margin: 30px auto;
+  margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  max-width: 800px; 
-  width: 95%;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .user-history h2 {
   text-align: left;
-  font-size: 1em;
+  font-size: 1.4em;
+  font-weight: 600;
   color: #2c3e50;
   margin-top: 0;
-  margin-bottom: 10px;
-  margin-left: 5px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
 }
 
-/* --- Responsive Wrapper --- */
 .table-responsive {
   width: 100%;
+  overflow-x: auto;
 }
 
 .history-table {
@@ -212,13 +298,13 @@
   color: #495057;
   font-weight: 600;
   text-align: left;
-  padding: 15px;
+  padding: 12px 15px;
   border-bottom: 2px solid #dee2e6;
   white-space: nowrap;
 }
 
 .history-table tbody td {
-  padding: 15px;
+  padding: 12px 15px;
   border-bottom: 1px solid #f1f1f1;
   color: #555;
   vertical-align: middle;
@@ -229,30 +315,19 @@
 }
 
 .history-table tbody tr:hover {
-  background-color: #f5f1e8B3;
+  background-color: rgba(245, 241, 232, 0.7);
 }
 
-.history-table th:nth-child(1),
-.history-table td:nth-child(1) {
-   width: 60%; /* Ví dụ: Cho cột sản phẩm chiếm nhiều không gian hơn */
-}
-
-
-/* Căn phải cho cột Số lượng (Cột 2) */
-.history-table th:nth-child(2), /* Header Số lượng */
-.history-table td:nth-child(2) { /* Data Số lượng */
+.history-table th:nth-child(2),
+.history-table td:nth-child(2) {
   text-align: center;
-  width: 15%; 
 }
 
-/* Căn giữa cho cột Trạng thái (Cột 3) */
-.history-table th:nth-child(3), /* Header Trạng thái */
-.history-table td:nth-child(3) { /* Data Trạng thái */
-   text-align: center;
-   width: 25%; /* Ví dụ: Đặt chiều rộng */
+.history-table th:nth-child(3),
+.history-table td:nth-child(3) {
+  text-align: center;
 }
 
-/* --- Trạng thái (Status Badges - Giữ nguyên) --- */
 .status {
   padding: 5px 12px;
   border-radius: 15px;
@@ -278,36 +353,276 @@
   color: #c82333;
 }
 
-/* ==================== RESPONSIVE STYLES ==================== */
+.user-history-full {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.user-history-full:hover {
+  text-decoration: underline;
+}
+
+/* Wave styles */
+.wave {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  opacity: 0.4;
+  left: 0;
+  top: 0;
+  margin-left: -30%;
+  margin-top: -50%;
+  background: linear-gradient(744deg, #6c6447, #ab9c5f 60%, #faf4dd);
+  border-radius: 40%;
+  animation: wave 25s infinite linear;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+.playing .wave {
+  animation: wave 3000ms infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 991px) {
+  .user-container {
+    width: 95%;
+    padding: 20px;
+  }
+  .user-profile-info .user-info-item {
+    font-size: 0.92em;
+  }
+  .user-likes-tag {
+    max-width: 100%;
+  }
+   .user-likes-author {
+    font-size: 22px;
+  }
+   .user-history h2 {
+    font-size: 1.3em;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .container.mt-5.mb-5 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .user-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .user-container .row > div[class^="col-"] {
+    margin-bottom: 30px;
+    width: 100% !important;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .user-container .row > div[class^="col-"]:last-child {
+    margin-bottom: 0;
+  }
+
+  .user-profile {
+    padding: 20px 15px;
+  }
+  .user-profile-img {
+    margin: 0 auto 15px auto;
+    max-width: 180px;
+  }
+  .user-profile-img img {
+    width: 100%;
+  }
+  .user-profile-container {
+    padding: 0 5px;
+  }
+  .user-profile-container h2 {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+  }
+  .user-profile-info .user-info-item {
+    padding: 8px 0px;
+    font-size: 0.9em;
+    flex-wrap: wrap;
+  }
+  .user-info-item .label {
+    min-width: 80px;
+  }
+  .user-info-item .value {
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .user-profile-info button {
+    padding: 10px 20px;
+    width: 100%;
+    margin: 15px 0 0 0;
+    font-size: 1em;
+  }
+
+  .user-likes {
+    margin-top: 20px;
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+   .user-likes.has-waves .user-likes-content {
+    padding: 15px;
+  }
+  .user-likes-author {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .user-likes-tag {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
+  .user-likes-tag .user-image {
+    width: 40px;
+    height: 40px;
+  }
+  .user-info {
+    flex-basis: 60%;
+    text-align: left;
+    margin: 5px 0;
+  }
+  .user-actions {
+    margin-left: 0;
+    flex-basis: 20%;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+
+  .user-history {
+    padding: 15px 10px;
+    margin-top: 10px;
+  }
+  .user-history h2 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+  }
+
+  .history-table {
+    min-width: 500px;
+  }
+
+  .history-table thead th,
+  .history-table tbody td {
+    padding: 10px 8px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .history-table th:nth-child(1),
+  .history-table td:nth-child(1) {
+    width: auto;
+    min-width: 150px;
+  }
+  .history-table th:nth-child(2),
+  .history-table td:nth-child(2) {
+    width: auto;
+    min-width: 60px;
+    text-align: center;
+  }
+  .history-table th:nth-child(3),
+  .history-table td:nth-child(3) {
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .status {
+    padding: 3px 8px;
+    font-size: 0.75em;
+  }
+
+  .user-history-full {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .user-profile-info .user-info-item {
+    font-size: 0.85em;
+  }
+  .history-table thead th,
+  .history-table tbody td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+  .user-likes-tag {
+    padding: 8px 10px;
+  }
+  .user-likes-tag .user-image {
+      width: 35px;
+      height: 35px;
+  }
+   .user-info a:first-child {
+     font-size: 0.95em;
+   }
+   .user-info a:nth-child(2) {
+     font-size: 0.8em;
+   }
+  .like-count {
+      font-size: 0.85em;
+  }
+   .favorite-action svg {
+      width: 16px;
+      height: 16px;
+  }
+}
+
+/* This media query seems out of place or potentially redundant, keeping it as is */
 @media screen and (max-width: 1024px) {
   .product-item {
-      flex: 1 1 calc(33.33% - 20px);
-      max-width: calc(33.33% - 20px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .product-item {
-      flex: 1 1 calc(50% - 20px);
-      max-width: calc(50% - 20px);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .product-item {
-      flex: 1 1 100%;
-      max-width: 100%;
-  }
-
-  .navbar {
-      padding: 10px 2%;
-  }
-
-  .nav-links {
-      font-size: 16px;
-  }
-
-  .search-bar {
-      max-width: 400px;
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
   }
 }

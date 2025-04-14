@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./radio.css"; 
+import "./radio.css";
 
 const Radio = ({ options, name, onChange }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -31,14 +31,14 @@ const Radio = ({ options, name, onChange }) => {
 
 const PaymentOptions = () => {
   const paymentMethods = [
-    { value: "the", label: "Thẻ" },
-    { value: "vi", label: "Ví điện tử" },
+    { value: "card", label: "Card" },
+    { value: "e-wallet", label: "E-wallet" },
     { value: "cod", label: "COD" },
   ];
 
   return (
     <div>
-      <Radio options={paymentMethods} name="payment" onChange={(value) => console.log("Chọn:", value)} />
+      <Radio options={paymentMethods} name="payment" onChange={(value) => console.log("Selected:", value)} />
     </div>
   );
 };

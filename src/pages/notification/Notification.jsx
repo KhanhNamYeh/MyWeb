@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
 import './notification.css';
-import '../../index.css'; // Giả định import đúng
-import Product from './Product'; // Giả định import đúng
-import Navbar from "../HeadAndFooter/Navbar"; // Giả định import đúng
-import Footer from "../HeadAndFooter/Footer"; // Giả định import đúng
+import '../../index.css'; // Assuming correct import
+import Product from './Product'; // Assuming correct import
+import Navbar from "../HeadAndFooter/Navbar"; // Assuming correct import
+import Footer from "../HeadAndFooter/Footer"; // Assuming correct import
 import BookTabs from './BookTabs';
 
 const Notification = () => {
   const [activePanel, setActivePanel] = useState('orders');
 
   const getButtonClass = (panelName) => {
-    // Trả về chuỗi className bao gồm class cơ bản và class active nếu trùng khớp
+    // Returns a className string including the base class and the active class if matched
     return `notice-button ${activePanel === panelName ? 'active-notice' : ''}`;
   };
 
   return (
     <>
       <Navbar />
-      <div className=".container mt-5 mb-5"> 
+      <div className="container mt-5 mb-5">
         <div className="main-panel-container">
           <div className="row g-0">
             <div className="notice col-md-4 left-panel p-5">
-              <div className="mx-2 mb-3 fw-bold fs-1 mb-3">Thông báo</div>
+              <div className="mx-2 mb-3 fw-bold fs-1 mb-3">Notifications</div>
               <div className="notice-order">
                 <button
                   onClick={() => setActivePanel('general')}
-                  className={`${getButtonClass('general')} mx-4 px-2`} 
+                  className={`${getButtonClass('general')} mx-4 px-2`}
                 >
-                  Thông báo chung
+                  General Notifications
                 </button>
               </div>
               <div className="notice-order">
                 <button
                   onClick={() => setActivePanel('sales')}
-                  className={`${getButtonClass('sales')} mx-4 px-2`} 
+                  className={`${getButtonClass('sales')} mx-4 px-2`}
                 >
-                  Khuyến mãi
+                  Promotions
                 </button>
               </div>
-              <div className="notice-order"> 
+              <div className="notice-order">
                 <button
                   onClick={() => setActivePanel('orders')}
-                  className={`${getButtonClass('orders')} mx-4 px-2`} 
+                  className={`${getButtonClass('orders')} mx-4 px-2`}
                 >
-                  Đơn hàng
+                  Orders
                 </button>
               </div>
             </div>
@@ -56,8 +56,8 @@ const Notification = () => {
               )}
               {activePanel === 'general' && (
                 <div className="notice-general">
-                  <h4>Thông báo chung</h4>
-                  {/* Thêm nội dung */}
+                  <h4>General Notifications</h4>
+                  No new notifications
                 </div>
               )}
             </div>

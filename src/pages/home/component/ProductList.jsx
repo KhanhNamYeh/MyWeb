@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useCart } from "../../cart/CartContext";
 import { useNavigate } from "react-router-dom";
-import { products } from "../../cart/component/product_Data"; // Import dữ liệu sản phẩm
+import { products } from "../../cart/component/product_Data";
 import SearchBar from "./SearchBar";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const ProductList = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [activeSearchTerm, setActiveSearchTerm] = useState("");
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const lowerSearch = searchTerm.toLowerCase();
+  const handleSearchSubmit = (submittedTerm) => {
+    setActiveSearchTerm(submittedTerm);
+  };
+
+  const lowerSearch = activeSearchTerm.toLowerCase();
   const filtered = products.filter(p =>
+    activeSearchTerm === "" ? true :
     p.title.toLowerCase().includes(lowerSearch) ||
     p.author.toLowerCase().includes(lowerSearch) ||
     p.genre.toLowerCase().includes(lowerSearch)
@@ -30,7 +34,13 @@ const ProductList = () => {
 
   return (
     <div className="product-list-wrapper">
-      <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <SearchBar onSearchSubmit={handleSearchSubmit} />
+
+      {filtered.length === 0 && activeSearchTerm !== "" && (
+        <p style={{ textAlign: 'center', marginTop: '20px' }}>
+          No products found matching "{activeSearchTerm}".
+        </p>
+      )}
 
       {genres.map(genre => (
         <section key={genre} className="genre-section">
@@ -49,21 +59,21 @@ const ProductList = () => {
                       alt={product.title}
                       className="product-image"
                     />
-                    <p><strong>Tên:</strong> {product.title}</p>
+                    <p><strong>Title:</strong> {product.title}</p>
                   </div>
 
-                  <p><strong>Tác giả:</strong> {product.author}</p>
-                  <p><strong>Giá Tiền:</strong> {product.price.toLocaleString()} đ</p>
+                  <p><strong>Author:</strong> {product.author}</p>
+                  <p><strong>Price:</strong> {product.price.toLocaleString()} VND</p>
 
                   <div className="product-buttons">
                     <button className="buy-now" onClick={() => handleBuyNow(product)}>
-                      Mua ngay
+                      Buy Now
                     </button>
                     <button
                       className="add-to-cart"
                       onClick={() => handleAddToCartOnly(product)}
                     >
-                      <ShoppingCartIcon style={{ marginRight: 8 }} /> Thêm vào giỏ hàng
+                      Add to Cart
                     </button>
                   </div>
                 </div>

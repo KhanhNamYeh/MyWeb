@@ -6,7 +6,7 @@ const ProductItem = ({ book }) => {
     <div className="book-item">
       <img src={`/images/${book.image}`} alt={book.title} className="book-image" />
       <h3>{book.title}</h3>
-      <p>Tác giả: {book.author}</p>
+      <p>Author: {book.author}</p>
     </div>
   );
 };

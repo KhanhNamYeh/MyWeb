@@ -1,146 +1,233 @@
-/* Container chung, canh giữa màn hình */
 .auth-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px auto;
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  /* Hộp chứa form đăng nhập / đăng ký */
-  .auth-box {
-    background-color: #fff;
-    border: 1px solid #ebebeb;
-    border-radius: 12px;         /* Bo tròn hộp hơn */
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Tiêu đề form */
-  .auth-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Form */
-  .auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Nhóm input */
-  .form-group {
-    text-align: left;
-  }
-  
-  /* Nhãn cho input */
-  .form-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
-  
-  /* Input chung với bo tròn */
-  .form-input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 25px;     /* Bo tròn các góc input */
-    outline: none;
-    transition: border 0.2s ease;
-  }
-  .form-input:focus {
-    border-color: #87CEFA;  /* Màu xanh lam khi focus */
-  }
-  
-  /* Nút chính chung với bo tròn */
-  .auth-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 30px;     /* Bo tròn nút */
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-  
-  /* Áp dụng cho nút đăng nhập, đăng ký và tạo tài khoản */
-  .login-btn,
-  .register-btn,
-  .create-account-btn {
-    background-color: #658C65; /* Mã màu nền */
-    color: #fff;               /* Màu chữ mặc định */
-    padding: 12px 16px;        /* Padding để giữ kích thước */
-    font-size: 1rem;
-    border-radius: 30px;       /* Bo tròn nút */
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    text-decoration: none;     /* Đảm bảo link không có gạch chân */
-    border: none;              /* Không có đường viền */
-    width: 100%;               /* Chiếm 100% chiều rộng */
-    box-sizing: border-box;    /* Bao gồm padding trong width */
-  }
-  
-  /* Hiệu ứng hover: chỉ nhảy lên, giữ nguyên màu nền và màu chữ */
-  .login-btn:hover,
-  .register-btn:hover,
-  .create-account-btn:hover {
-    transform: translateY(-3px);
-    background-color: #658C65;  /* Giữ nguyên màu nền */
-    color: #fff;                /* Giữ nguyên màu chữ */
-  }
-  
-  /* Chính sách và các liên kết phụ */
-  .policy-text {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
-  }
-  .policy-text a {
-    text-decoration: underline;
-    color: #555;
-  }
-  
-  .forgot-link {
-    display: block;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 0.5rem;
-  }
-  .forgot-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Hộp riêng cho nút Tạo tài khoản mới */
-  .create-account-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Ngoại lệ: Style cho group mật khẩu (nếu có ô Ẩn/Hiện) */
-  .password-group {
-    position: relative;
-  }
-  .password-input-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  .password-toggle {
-    position: absolute;
-    right: 12px;
-    color: #666;
-    cursor: pointer;
-    user-select: none;
-    font-size: 0.9rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 15px;
+  margin: 40px auto;
+  max-width: 400px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.auth-box {
+  background-color: rgb(245, 245, 245);
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1.5em 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.auth-box:focus-within {
+  box-shadow: 0 0 6px 3px rgba(76, 175, 80, 0.2);
+  outline: 1px solid #a5d6a7;
+}
+
+.auth-header {
+  color: rgb(75, 75, 75);
+  font-size: 0.938em;
+  font-weight: 640;
+  margin: 0 0 1.2em 0;
+  display: block;
+  text-align: left;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1.2em;
+}
+.form-group:last-of-type {
+  margin-bottom: 0.5em;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.7em 0.9em;
+  font-size: 1em;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color: #4b4b4b;
+  height: 3em;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.form-input::placeholder {
+  color: #999;
+}
+.form-input:focus {
+  border-color: #4CAF50;
+}
+
+.password-group {
+  position: relative;
+}
+.password-input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.password-input-wrapper .form-input {
+  padding-right: 40px;
+}
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+}
+
+.auth-buttons-container {
+  padding: 0.5em 0 0;
+  margin-bottom: 1.188em;
+}
+
+.auth-button.login-btn {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #658C65;
+  border: none;
+  flex-grow: 1;
+  padding: 0.8em 1.25em;
+  font-size: 0.95em;
+  line-height: 1.6;
+  border-radius: 1.5em;
+  touch-action: manipulation;
+  margin: 0;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+.auth-button.login-btn:hover {
+  transform: translateY(-3px);
+  background-color: #5a7d5a;
+}
+
+.forgot-link {
+  cursor: pointer;
+  color: #4c9dd0;
+  padding: 0.5em 0;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 0.875em;
+  display: block;
+  text-align: right;
+  margin-top: -5px;
+}
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.policy-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+.policy-text a {
+  text-decoration: underline;
+  color: #658C65;
+}
+
+.other-signin-options {
+  margin-top: 1.5em;
+  padding-top: 1.2em;
+  border-top: 1px solid #d2d0d0;
+  text-align: left;
+}
+
+.other-signin-label {
+  color: rgb(75, 75, 75);
+  font-size: 0.9em;
+  font-weight: 640;
+  margin: 0 0 0.8em 0;
+  display: block;
+}
+
+.signin-providers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.5em;
+}
+
+.signin-provider-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.signin-provider-logo:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.signin-provider-logo .provider-logo {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: #4b4b4b;
+}
+
+.create-account-box {
+  background-color: rgb(245, 245, 245);
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1.188em;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.create-account-btn {
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #658C65;
+  border: none;
+  padding: 0.8em 1.5em;
+  font-size: 0.95em;
+  line-height: 1.6;
+  border-radius: 1.5em;
+  touch-action: manipulation;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  width: auto;
+}
+.create-account-btn:hover {
+  transform: translateY(-3px);
+  background-color: #5a7d5a;
+  color: white;
+}
