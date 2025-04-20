@@ -392,8 +392,7 @@ footer {
 
 .genre-select:focus {
   outline: none;
-  border-color: #1976d2;
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.25);
+  box-shadow: 0 0 0 3px rgba(204, 232, 204, 0.25);
 }
 
 /* Add a label for better UX */

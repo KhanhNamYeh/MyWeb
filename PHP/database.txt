@@ -1,0 +1,83 @@
+-- ========================
+-- 1. Users Table
+-- ========================
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    login VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(20),
+    role ENUM('user', 'admin') NOT NULL,
+    image VARCHAR(255)
+);
+
+-- ========================
+-- 2. Books Table
+-- ========================
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    title TEXT,
+    author VARCHAR(255),
+    price FLOAT NOT NULL,
+    sale FLOAT, -- giá sau khuyến mãi (hoặc % giảm)
+    promotion TEXT,
+    image VARCHAR(255)
+);
+
+-- ========================
+-- 3. Categories Table
+-- ========================
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+-- ========================
+-- 4. Book-Categories (Many-to-Many)
+-- ========================
+CREATE TABLE book_categories (
+    book_id INT,
+    category_id INT,
+    PRIMARY KEY (book_id, category_id),
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+);
+
+-- ========================
+-- 5. Carts Table
+-- ========================
+CREATE TABLE carts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    book_id INT,
+    quantity INT DEFAULT 1,
+    status TINYINT DEFAULT 0, -- 0: trong giỏ, 1: đã đặt
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+);
+
+-- ========================
+-- 6. Orders Table
+-- ========================
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    total FLOAT NOT NULL,
+    status VARCHAR(50) DEFAULT 'Delivered', 
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- ========================
+-- 7. Order Items Table
+-- ========================
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    book_id INT,
+    quantity INT NOT NULL,
+    price FLOAT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+);
