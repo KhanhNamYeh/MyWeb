@@ -497,6 +497,53 @@
   transform: translateY(-2px);
 }
 
+/* Add these new styles to your existing auth.css file */
+
+/* Two column layout for register form on medium screens and up */
+@media (min-width: 768px) {
+  /* Register form specific styles */
+  .register-form-container.auth-container {
+    max-width: 720px;
+  }
+  
+  .register-form-container .auth-login-box {
+    padding: 2.5rem;
+  }
+  
+  .register-form-container .auth-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Make email field take full width */
+  .register-form-container .auth-form .auth-form-group:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+  
+  /* Make buttons and policy text take full width */
+  .register-form-container .auth-buttons-container,
+  .register-form-container .auth-policy-text,
+  .register-form-container .auth-divider,
+  .register-form-container .auth-create-account-box {
+    grid-column: 1 / -1;
+  }
+  
+  /* Adjust form spacing for better appearance */
+  .register-form-container .auth-form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Add some spacing between the columns */
+  .register-form-container .auth-form-group:nth-child(odd) {
+    padding-right: 0.5rem;
+  }
+  
+  .register-form-container .auth-form-group:nth-child(even) {
+    padding-left: 0.5rem;
+  }
+}
+
 /* Responsive styles */
 @media (max-width: 480px) {
   .auth-box {
