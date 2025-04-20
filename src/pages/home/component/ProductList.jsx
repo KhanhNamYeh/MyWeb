@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 
 const ProductList = () => {
   const [activeSearchTerm, setActiveSearchTerm] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("All");
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
@@ -14,14 +15,27 @@ const ProductList = () => {
   };
 
   const lowerSearch = activeSearchTerm.toLowerCase();
-  const filtered = products.filter(p =>
+  
+  // Filter products based on search term
+  const searchFiltered = products.filter(p =>
     activeSearchTerm === "" ? true :
     p.title.toLowerCase().includes(lowerSearch) ||
     p.author.toLowerCase().includes(lowerSearch) ||
     p.genre.toLowerCase().includes(lowerSearch)
   );
+  
+  // Further filter by selected genre
+  const filtered = searchFiltered.filter(p => 
+    selectedGenre === "All" ? true : p.genre === selectedGenre
+  );
 
-  const genres = [...new Set(filtered.map(p => p.genre))];
+  // Get all unique genres from products
+  const allGenres = ["All", ...new Set(products.map(p => p.genre))];
+
+  // Get genres from filtered products for display sections
+  const displayGenres = selectedGenre === "All" 
+    ? [...new Set(filtered.map(p => p.genre))]
+    : [selectedGenre];
 
   const handleBuyNow = (product) => {
     addToCart(product);
@@ -32,23 +46,45 @@ const ProductList = () => {
     addToCart(product);
   };
 
+  const handleGenreChange = (e) => {
+    setSelectedGenre(e.target.value);
+  };
+
   return (
     <div className="product-list-wrapper">
-      <SearchBar onSearchSubmit={handleSearchSubmit} />
+      <div className="product-filter-section">
+        <SearchBar onSearchSubmit={handleSearchSubmit} />
+        
+        <div className="genre-filter">
+          <select 
+            className="genre-select" 
+            value={selectedGenre} 
+            onChange={handleGenreChange}
+          >
+            {allGenres.map(genre => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
-      {filtered.length === 0 && activeSearchTerm !== "" && (
+      {filtered.length === 0 && (
         <p style={{ textAlign: 'center', marginTop: '20px' }}>
-          No products found matching "{activeSearchTerm}".
+          No products found matching "{activeSearchTerm}" in {selectedGenre === "All" ? "any category" : `the "${selectedGenre}" category`}.
         </p>
       )}
 
-      {genres.map(genre => (
-        <section key={genre} className="genre-section">
-          <h2 className="genre-title">{genre}</h2>
-          <div className="products-container">
-            {filtered
-              .filter(p => p.genre === genre)
-              .map((product, idx) => (
+      {displayGenres.map(genre => {
+        const genreProducts = filtered.filter(p => p.genre === genre);
+        if (genreProducts.length === 0) return null;
+        
+        return (
+          <section key={genre} className="genre-section">
+            <h2 className="genre-title">{genre}</h2>
+            <div className="products-container">
+              {genreProducts.map((product, idx) => (
                 <div key={idx} className="product-item">
                   <div
                     onClick={() => navigate(`/product/${product.id}`)}
@@ -77,11 +113,11 @@ const ProductList = () => {
                     </button>
                   </div>
                 </div>
-              ))
-            }
-          </div>
-        </section>
-      ))}
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 };
