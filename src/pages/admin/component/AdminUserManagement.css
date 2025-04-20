@@ -1,0 +1,318 @@
+.admin-usermanage-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.admin-usermanage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-usermanage-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.admin-usermanage-add-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.admin-usermanage-add-btn:hover {
+  background-color: #388e3c;
+  text-decoration: none;
+}
+
+/* Apply no underline to all buttons in this component */
+.admin-usermanage-container button {
+  text-decoration: none;
+}
+
+.admin-usermanage-container button:hover,
+.admin-usermanage-container button:focus,
+.admin-usermanage-container button:active {
+  text-decoration: none;
+}
+
+.admin-usermanage-status-message {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.admin-usermanage-status-message.success {
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  color: #2e7d32;
+}
+
+.admin-usermanage-status-message.error {
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  color: #c62828;
+}
+
+.admin-usermanage-table-container {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.admin-usermanage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.admin-usermanage-table th,
+.admin-usermanage-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-usermanage-table th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: 600;
+}
+
+.admin-usermanage-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-usermanage-user-thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-usermanage-user-thumbnail-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.admin-usermanage-role-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.admin-usermanage-role-badge.admin {
+  background-color: #ede7f6;
+  color: #5e35b1;
+  border: 1px solid #d1c4e9;
+}
+
+.admin-usermanage-role-badge.user {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.admin-usermanage-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-usermanage-edit-btn,
+.admin-usermanage-delete-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.admin-usermanage-edit-btn {
+  background-color: #2196f3;
+  color: white;
+  text-decoration: none;
+}
+
+.admin-usermanage-edit-btn:hover {
+  background-color: #1976d2;
+  text-decoration: none;
+}
+
+.admin-usermanage-delete-btn {
+  background-color: #f44336;
+  color: white;
+  text-decoration: none;
+}
+
+.admin-usermanage-delete-btn:hover {
+  background-color: #d32f2f;
+  text-decoration: none;
+}
+
+.admin-usermanage-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.admin-usermanage-modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-usermanage-user-modal {
+  max-width: 600px;
+}
+
+.admin-usermanage-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-usermanage-form-group {
+  margin-bottom: 16px;
+}
+
+.admin-usermanage-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+}
+
+.admin-usermanage-form-group input,
+.admin-usermanage-form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.admin-usermanage-form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.admin-usermanage-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.admin-usermanage-save-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.admin-usermanage-save-btn:hover {
+  background-color: #388e3c;
+  text-decoration: none;
+}
+
+.admin-usermanage-cancel-btn {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.admin-usermanage-cancel-btn:hover {
+  background-color: #e0e0e0;
+  text-decoration: none;
+}
+
+.admin-usermanage-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.admin-usermanage-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: admin-usermanage-spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes admin-usermanage-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.admin-usermanage-error-container {
+  text-align: center;
+  padding: 30px;
+  color: #d32f2f;
+}
+
+.admin-usermanage-error-container button {
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-usermanage-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .admin-usermanage-action-buttons {
+    flex-direction: column;
+  }
+}

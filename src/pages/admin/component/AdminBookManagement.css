@@ -1,17 +1,17 @@
-.admin-book-management {
+.admin-bookmanage-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.admin-header {
+.admin-bookmanage-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.add-book-btn {
+.admin-bookmanage-add-btn {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -19,82 +19,101 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.add-book-btn:hover {
+.admin-bookmanage-add-btn:hover {
   background-color: #45a049;
+  text-decoration: none;
 }
 
-.books-table-container {
+.admin-bookmanage-table-container {
   overflow-x: auto;
 }
 
-.books-table {
+.admin-bookmanage-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.books-table th, 
-.books-table td {
+.admin-bookmanage-table th,
+.admin-bookmanage-table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 
-.books-table th {
+.admin-bookmanage-table th {
   background-color: #f2f2f2;
   color: #333;
 }
 
-.books-table tr:nth-child(even) {
+.admin-bookmanage-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.books-table tr:hover {
+.admin-bookmanage-table tr:hover {
   background-color: #f1f1f1;
 }
 
-.book-thumbnail {
+.admin-bookmanage-thumbnail {
   width: 50px;
   height: 75px;
   object-fit: cover;
   border: 1px solid #ddd;
 }
 
-.action-buttons {
+.admin-bookmanage-actions {
   display: flex;
   gap: 8px;
 }
 
-.edit-btn, .delete-btn {
+.admin-bookmanage-edit-btn, 
+.admin-bookmanage-delete-btn {
   padding: 5px 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.9rem;
+  text-decoration: none;
 }
 
-.edit-btn {
+.admin-bookmanage-edit-btn {
   background-color: #2196F3;
   color: white;
+  text-decoration: none;
 }
 
-.edit-btn:hover {
+.admin-bookmanage-edit-btn:hover {
   background-color: #0b7dda;
+  text-decoration: none;
 }
 
-.delete-btn {
+.admin-bookmanage-delete-btn {
   background-color: #f44336;
   color: white;
+  text-decoration: none;
 }
 
-.delete-btn:hover {
+.admin-bookmanage-delete-btn:hover {
   background-color: #d32f2f;
+  text-decoration: none;
+}
+
+/* Apply no underline to all buttons */
+button {
+  text-decoration: none;
+}
+
+button:hover, 
+button:focus, 
+button:active {
+  text-decoration: none;
 }
 
 /* Modal styles */
-.modal-backdrop {
+.admin-bookmanage-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -107,7 +126,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.admin-bookmanage-modal-content {
   background-color: white;
   padding: 25px;
   border-radius: 8px;
@@ -117,24 +136,24 @@
   overflow-y: auto;
 }
 
-.modal-content h3 {
+.admin-bookmanage-modal-content h3 {
   margin-top: 0;
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
 
-.form-group {
+.admin-bookmanage-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.admin-bookmanage-form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-group input,
-.form-group select {
+.admin-bookmanage-form-group input, 
+.admin-bookmanage-form-group select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
@@ -142,56 +161,110 @@
   box-sizing: border-box;
 }
 
-.modal-buttons {
+.admin-bookmanage-modal-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
 
-.save-btn, .cancel-btn {
+.admin-bookmanage-save-btn, 
+.admin-bookmanage-cancel-btn {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.save-btn {
+.admin-bookmanage-save-btn {
   background-color: #4CAF50;
   color: white;
+  text-decoration: none;
 }
 
-.save-btn:hover {
+.admin-bookmanage-save-btn:hover {
   background-color: #45a049;
+  text-decoration: none;
 }
 
-.cancel-btn {
+.admin-bookmanage-cancel-btn {
   background-color: #f44336;
   color: white;
+  text-decoration: none;
 }
 
-.cancel-btn:hover {
+.admin-bookmanage-cancel-btn:hover {
   background-color: #d32f2f;
+  text-decoration: none;
 }
 
-.status-message {
+.admin-bookmanage-status-message {
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 4px;
 }
 
-.status-message.success {
+.admin-bookmanage-success {
   background-color: #dff0d8;
   color: #3c763d;
   border: 1px solid #d6e9c6;
 }
 
-.status-message.error {
+.admin-bookmanage-error {
   background-color: #f2dede;
   color: #a94442;
   border: 1px solid #ebccd1;
 }
 
-.mt-2 {
+.admin-bookmanage-mt-2 {
   margin-top: 8px;
+}
+
+.admin-bookmanage-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.admin-bookmanage-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: admin-bookmanage-spin 2s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes admin-bookmanage-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.admin-bookmanage-error-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.admin-bookmanage-error-container button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.admin-bookmanage-error-container button:hover {
+  background-color: #0069d9;
+  text-decoration: none;
 }

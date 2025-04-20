@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ShoppingCart, Notifications, ExitToApp, AccountCircle, Login } from "@mui/icons-material";
+import { ShoppingCart, Notifications, ExitToApp, AccountCircle, Login, AdminPanelSettings } from "@mui/icons-material";
 import "../home/home.css";
 import { useCart } from "../cart/CartContext";
 
@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const [hoveredItemKey, setHoveredItemKey] = useState(null);
 
   // Check login status when component mounts
@@ -17,9 +18,11 @@ const Navbar = () => {
     if (userInfo && userInfo.login) {
       setIsLoggedIn(true);
       setUsername(userInfo.name || userInfo.login);
+      setIsAdmin(userInfo.role === "admin");
     } else {
       setIsLoggedIn(false);
       setUsername("");
+      setIsAdmin(false);
     }
   }, []);
 
@@ -30,6 +33,7 @@ const Navbar = () => {
     localStorage.removeItem("userInfo");
     setIsLoggedIn(false);
     setUsername("");
+    setIsAdmin(false);
     navigate("/login");
   };
 
@@ -47,6 +51,16 @@ const Navbar = () => {
     { key: 'notifications', Icon: Notifications, label: 'Notifications', url: '/notification' },
     { key: 'account', Icon: AccountCircle, label: 'Account', url: '/user' },
   ];
+
+  // Add Management item for admin users
+  if (isAdmin) {
+    navItems.push({ 
+      key: 'management', 
+      Icon: AdminPanelSettings, 
+      label: 'Management', 
+      url: '/admin' 
+    });
+  }
 
   const renderNavItem = (item) => {
     const isHovered = hoveredItemKey === item.key;

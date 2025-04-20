@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../HeadAndFooter/Navbar";
 import Footer from "../HeadAndFooter/Footer";
 import AdminBookManagement from "./component/AdminBookManagement";
+import AdminUserManagement from "./component/AdminUserManagement";
 import "./AdminPage.css";
 
 const AdminPage = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("books");
 
   useEffect(() => {
     // Check if user is stored in session storage
@@ -60,43 +62,79 @@ const AdminPage = () => {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <div className="spinner"></div>
+      <div className="admin-page-loading-container">
+        <div className="admin-page-spinner"></div>
         <p>Loading admin panel...</p>
       </div>
     );
   }
 
+  // Render the appropriate component based on active tab
+  const renderActiveComponent = () => {
+    switch (activeTab) {
+      case "books":
+        return <AdminBookManagement />;
+      case "users":
+        return <AdminUserManagement />;
+      case "orders":
+        return <div className="admin-page-coming-soon">Orders management coming soon</div>;
+      case "settings":
+        return <div className="admin-page-coming-soon">Site settings coming soon</div>;
+      default:
+        return <AdminBookManagement />;
+    }
+  };
+
   return (
-    <div className="admin-page">
+    <div className="admin-page-wrapper">
       <Navbar />
       
-      <div className="admin-container">
-        <div className="admin-sidebar">
-          <div className="admin-profile">
+      <div className="admin-page-container">
+        <div className="admin-page-sidebar">
+          <div className="admin-page-profile">
             {user.image ? (
-              <img src={`/images/${user.image}`} alt={user.name} className="admin-avatar" />
+              <img src={`/images/${user.image}`} alt={user.name} className="admin-page-avatar" />
             ) : (
-              <div className="admin-avatar-placeholder">{user.name.charAt(0)}</div>
+              <div className="admin-page-avatar-placeholder">{user.name.charAt(0)}</div>
             )}
-            <div className="admin-info">
+            <div className="admin-page-info">
               <h3>{user.name}</h3>
-              <p className="admin-role">Administrator</p>
+              <p className="admin-page-role">Administrator</p>
             </div>
           </div>
           
-          <nav className="admin-nav">
+          <nav className="admin-page-nav">
             <ul>
-              <li className="active">Book Management</li>
-              <li>User Management</li>
-              <li>Orders</li>
-              <li>Site Settings</li>
+              <li 
+                className={activeTab === "books" ? "active" : ""}
+                onClick={() => setActiveTab("books")}
+              >
+                Book Management
+              </li>
+              <li 
+                className={activeTab === "users" ? "active" : ""}
+                onClick={() => setActiveTab("users")}
+              >
+                User Management
+              </li>
+              <li 
+                className={activeTab === "orders" ? "active" : ""}
+                onClick={() => setActiveTab("orders")}
+              >
+                Orders
+              </li>
+              <li 
+                className={activeTab === "settings" ? "active" : ""}
+                onClick={() => setActiveTab("settings")}
+              >
+                Site Settings
+              </li>
             </ul>
           </nav>
         </div>
         
-        <div className="admin-content">
-          <AdminBookManagement />
+        <div className="admin-page-content">
+          {renderActiveComponent()}
         </div>
       </div>
       

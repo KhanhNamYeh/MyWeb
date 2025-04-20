@@ -157,8 +157,8 @@ const AdminBookManagement = () => {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <div className="spinner"></div>
+      <div className="admin-bookmanage-loading-container">
+        <div className="admin-bookmanage-spinner"></div>
         <p>Loading books...</p>
       </div>
     );
@@ -166,7 +166,7 @@ const AdminBookManagement = () => {
 
   if (error) {
     return (
-      <div className="error-container">
+      <div className="admin-bookmanage-error-container">
         <p>Error loading books: {error}</p>
         <button onClick={() => window.location.reload()}>Try Again</button>
       </div>
@@ -174,20 +174,20 @@ const AdminBookManagement = () => {
   }
 
   return (
-    <div className="admin-book-management">
-      <div className="admin-header">
+    <div className="admin-bookmanage-container">
+      <div className="admin-bookmanage-header">
         <h2>Book Management</h2>
-        <button className="add-book-btn" onClick={handleAddNew}>Add New Book</button>
+        <button className="admin-bookmanage-add-btn" onClick={handleAddNew}>Add New Book</button>
       </div>
 
       {statusMessage.message && (
-        <div className={`status-message ${statusMessage.type}`}>
+        <div className={`admin-bookmanage-status-message admin-bookmanage-${statusMessage.type}`}>
           {statusMessage.message}
         </div>
       )}
 
-      <div className="books-table-container">
-        <table className="books-table">
+      <div className="admin-bookmanage-table-container">
+        <table className="admin-bookmanage-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -208,7 +208,7 @@ const AdminBookManagement = () => {
                   <img 
                     src={`/images/${book.image}`} 
                     alt={book.title}
-                    className="book-thumbnail"
+                    className="admin-bookmanage-thumbnail"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = "/images/placeholder.jpg";
@@ -221,15 +221,15 @@ const AdminBookManagement = () => {
                 <td>{book.price.toLocaleString()}</td>
                 <td>{book.sale ? book.sale.toLocaleString() : "-"}</td>
                 <td>
-                  <div className="action-buttons">
+                  <div className="admin-bookmanage-actions">
                     <button 
-                      className="edit-btn"
+                      className="admin-bookmanage-edit-btn"
                       onClick={() => handleEdit(book)}
                     >
                       Edit
                     </button>
                     <button 
-                      className="delete-btn"
+                      className="admin-bookmanage-delete-btn"
                       onClick={() => handleDelete(book.id)}
                     >
                       Delete
@@ -243,11 +243,11 @@ const AdminBookManagement = () => {
       </div>
 
       {showModal && (
-        <div className="modal-backdrop">
-          <div className="modal-content">
+        <div className="admin-bookmanage-modal-backdrop">
+          <div className="admin-bookmanage-modal-content">
             <h3>{isAdding ? "Add New Book" : "Edit Book"}</h3>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Title:</label>
                 <input
                   type="text"
@@ -258,7 +258,7 @@ const AdminBookManagement = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Author:</label>
                 <input
                   type="text"
@@ -269,7 +269,7 @@ const AdminBookManagement = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Genre:</label>
                 <select
                   name="genre"
@@ -288,12 +288,12 @@ const AdminBookManagement = () => {
                     name="genre"
                     placeholder="Enter new genre"
                     onChange={handleInputChange}
-                    className="mt-2"
+                    className="admin-bookmanage-mt-2"
                   />
                 )}
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Price (VND):</label>
                 <input
                   type="number"
@@ -304,7 +304,7 @@ const AdminBookManagement = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Sale Price (VND, optional):</label>
                 <input
                   type="number"
@@ -314,7 +314,7 @@ const AdminBookManagement = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Promotion (optional):</label>
                 <input
                   type="text"
@@ -324,7 +324,7 @@ const AdminBookManagement = () => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="admin-bookmanage-form-group">
                 <label>Image Filename:</label>
                 <input
                   type="text"
@@ -336,11 +336,11 @@ const AdminBookManagement = () => {
                 <small>Image should be in the /images/ folder</small>
               </div>
 
-              <div className="modal-buttons">
-                <button type="submit" className="save-btn">Save</button>
+              <div className="admin-bookmanage-modal-buttons">
+                <button type="submit" className="admin-bookmanage-save-btn">Save</button>
                 <button 
                   type="button" 
-                  className="cancel-btn"
+                  className="admin-bookmanage-cancel-btn"
                   onClick={() => setShowModal(false)}
                 >
                   Cancel
