@@ -48,8 +48,8 @@ if ($action === 'login') {
         exit();
     }
 
-    $stmt = $conn->prepare("SELECT id, name, login, password, email, role, image FROM users WHERE login = ?");
-    $stmt->bind_param("s", $login_input);
+    $stmt = $conn->prepare("SELECT id, name, login, password, email, role, image FROM users WHERE login = ? OR email = ?");
+    $stmt->bind_param("ss", $login_input, $login_input);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -63,6 +63,37 @@ if ($action === 'login') {
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['image'] = $user['image'];
+
+            // Check if guest cart exists in request and process it
+            if (isset($input['guestCart']) && is_array($input['guestCart'])) {
+                foreach ($input['guestCart'] as $item) {
+                    if (!isset($item['id']) || !isset($item['quantity'])) continue;
+                    
+                    $book_id = (int)$item['id'];
+                    $quantity = (int)$item['quantity'];
+                    
+                    // Check if item already exists in cart
+                    $cart_stmt = $conn->prepare("SELECT id, quantity FROM carts WHERE user_id = ? AND book_id = ? AND status = 0");
+                    $cart_stmt->bind_param("ii", $user['id'], $book_id);
+                    $cart_stmt->execute();
+                    $cart_result = $cart_stmt->get_result();
+                    
+                    if ($cart_result->num_rows > 0) {
+                        // Update existing cart item
+                        $cart_row = $cart_result->fetch_assoc();
+                        $new_quantity = $cart_row['quantity'] + $quantity;
+                        
+                        $update_stmt = $conn->prepare("UPDATE carts SET quantity = ? WHERE id = ?");
+                        $update_stmt->bind_param("ii", $new_quantity, $cart_row['id']);
+                        $update_stmt->execute();
+                    } else {
+                        // Add new item to cart
+                        $insert_stmt = $conn->prepare("INSERT INTO carts (user_id, book_id, quantity) VALUES (?, ?, ?)");
+                        $insert_stmt->bind_param("iii", $user['id'], $book_id, $quantity);
+                        $insert_stmt->execute();
+                    }
+                }
+            }
 
             http_response_code(200);
             echo json_encode([
@@ -144,6 +175,23 @@ if ($action === 'login') {
     $stmt->bind_param("sssssss", $name, $login, $password, $email, $phone, $role, $image);
 
     if ($stmt->execute()) {
+        // Get new user ID for further operations
+        $new_user_id = $conn->insert_id;
+        
+        // If guest cart data is provided, add it to the new user's cart
+        if (isset($input['guestCart']) && is_array($input['guestCart'])) {
+            foreach ($input['guestCart'] as $item) {
+                if (!isset($item['id']) || !isset($item['quantity'])) continue;
+                
+                $book_id = (int)$item['id'];
+                $quantity = (int)$item['quantity'];
+                
+                $cart_stmt = $conn->prepare("INSERT INTO carts (user_id, book_id, quantity) VALUES (?, ?, ?)");
+                $cart_stmt->bind_param("iii", $new_user_id, $book_id, $quantity);
+                $cart_stmt->execute();
+            }
+        }
+        
         http_response_code(201);
         echo json_encode(['success' => true, 'message' => 'Registration successful']);
     } else {
@@ -152,6 +200,22 @@ if ($action === 'login') {
     }
     $stmt->close();
 
+} elseif ($action === 'logout') {
+    // Clear session data
+    $_SESSION = array();
+    
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    
+    session_destroy();
+    
+    http_response_code(200);
+    echo json_encode(['success' => true, 'message' => 'Logout successful']);
 } else {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Invalid action']);

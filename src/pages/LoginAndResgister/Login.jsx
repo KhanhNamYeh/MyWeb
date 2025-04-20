@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useCart } from "../cart/CartContext"; // Update with correct path
 import "./auth.css";
 
 const Login = () => {
@@ -9,6 +10,11 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { handleLogin } = useCart();
+  
+  // Get the return location if redirected from cart
+  const returnTo = location.state?.returnTo || "/home";
 
   // Add animation effect when component mounts
   useEffect(() => {
@@ -53,11 +59,14 @@ const Login = () => {
         
         // Store user information in localStorage
         localStorage.setItem("userInfo", JSON.stringify(data.user));
+        
+        // Update cart state after successful login
+        await handleLogin(data.user.id);
 
         if (data.user && data.user.role === "admin") {
           navigate("/admin");
         } else {
-          navigate("/home");
+          navigate(returnTo);
         }
       } else {
         setError(data.error || `Login failed (Status: ${response.status})`);
