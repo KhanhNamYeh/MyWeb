@@ -3,3 +3,4 @@ export { default as Home } from './home/Home';
 export { default as Notification } from './Notification/Notification';
 export { default as Wishlist } from './Wishlist/Wishlist';
 export { default as User } from './user/User';
+export { default as AdminPage} from './admin/AdminPage';

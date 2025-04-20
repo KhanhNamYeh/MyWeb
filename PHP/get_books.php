@@ -50,14 +50,12 @@ function getAllBooks($conn) {
                     $book['genres'][] = $category['name'];
                 }
             }
-            
-            // Format book data to match the expected format in the React component
             $formattedBook = [
                 'id' => $book['id'],
                 'image' => $book['image'],
-                'title' => $book['name'], // using 'name' from DB as 'title' in the frontend
+                'title' => $book['name'], 
                 'author' => $book['author'],
-                'genre' => implode(", ", $book['genres']), // Joining all genres with comma
+                'genre' => implode(", ", $book['genres']), 
                 'price' => (float)$book['price'],
                 'sale' => $book['sale'] ? (float)$book['sale'] : null,
                 'promotion' => $book['promotion']

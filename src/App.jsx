@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, User, Wishlist, Cart, Notification } from "./pages";
+import { Home, User, Wishlist, Cart, Notification, AdminPage } from "./pages";
 import { CartProvider } from "./pages/cart/CartContext";
 import ProductDetail  from "./pages/product_detail/ProductDetail";
 
@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/notification" element={<Notification />} />
