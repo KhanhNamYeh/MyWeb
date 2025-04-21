@@ -197,7 +197,7 @@ const ProductDetail = () => {
           <div className="product-detail-right">
             <h1 className="product-detail-title">{product.title}</h1>
             
-            <div className="product-detail-author">By <span>{product.author}</span></div>
+            <div className="product-detail-author"><span>{product.author}</span></div>
             
             <div className="product-detail-badge-container">
               <span className="product-detail-genre-badge">{product.genre}</span>

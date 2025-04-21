@@ -13,6 +13,9 @@ function Cart() {
   const [isSuccessModalVisible, setIsSuccessModalVisible] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
+  const [address, setAddress] = useState("143 Phuoc Thien, Long Thanh My, District 9, Thu Duc City");
+  const [isEditingAddress, setIsEditingAddress] = useState(false);
+  const [newAddress, setNewAddress] = useState("");
   const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -48,6 +51,22 @@ function Cart() {
     navigate('/');
   };
 
+  const handleEditAddress = () => {
+    setNewAddress(address);
+    setIsEditingAddress(true);
+  };
+
+  const handleSaveAddress = () => {
+    if (newAddress.trim()) {
+      setAddress(newAddress);
+    }
+    setIsEditingAddress(false);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditingAddress(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -78,8 +97,26 @@ function Cart() {
         {cart.length > 0 && (
           <div className="cart-info-pay">
             <div className="cart-address">
-              <div>Shipping Address: 143 Phuoc Thien, Long Thanh My, District 9, Thu Duc City</div>
-              <button>Change</button>
+              {isEditingAddress ? (
+                <div className="address-edit-form">
+                  <textarea 
+                    value={newAddress}
+                    onChange={(e) => setNewAddress(e.target.value)}
+                    rows="3"
+                    className="address-textarea"
+                    placeholder="Enter your shipping address"
+                  />
+                  <div className="address-buttons">
+                    <button onClick={handleSaveAddress}>Save</button>
+                    <button onClick={handleCancelEdit}>Cancel</button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div>Shipping Address: {address}</div>
+                  <button onClick={handleEditAddress}>Change</button>
+                </>
+              )}
             </div>
             <div className="cart-payment">
               <div>Payment Method: </div>

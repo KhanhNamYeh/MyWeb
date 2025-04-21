@@ -3,8 +3,8 @@ import './user.css';
 import Navbar from '../HeadAndFooter/Navbar';
 import Footer from '../HeadAndFooter/Footer';
 import ai from "/images/ai.png";
-import a2 from "/images/a2.png"; // Make sure these files exist
-import a3 from "/images/a3.png"; // Make sure these files exist
+import a2 from "/images/a2.png";
+import a3 from "/images/a3.png";
 import { Favorite } from '@mui/icons-material';
 
 function hidePassword(password) {
@@ -32,6 +32,8 @@ const User = () => {
     selectedImage: ''
   });
   const [updateStatus, setUpdateStatus] = useState({ message: '', type: '' });
+  const [favoriteAuthors, setFavoriteAuthors] = useState([]);
+  const [recentOrders, setRecentOrders] = useState([]);
 
   // Define available avatar images
   const avatarImages = [
@@ -42,6 +44,8 @@ const User = () => {
 
   useEffect(() => {
     fetchUserData();
+    fetchFavoriteAuthors();
+    fetchRecentOrders();
   }, []);
   
   const fetchUserData = async () => {
@@ -73,6 +77,46 @@ const User = () => {
       setError('Network error - Could not connect to server');
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Fetch favorite authors based on order history
+  const fetchFavoriteAuthors = async () => {
+    try {
+      const response = await fetch("http://localhost/PHP/favorite_authors.php", {
+        method: "GET",
+        credentials: "include"
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setFavoriteAuthors(data.authors || []);
+      } else {
+        console.error("Failed to fetch favorite authors:", data.error);
+      }
+    } catch (error) {
+      console.error("Failed to fetch favorite authors:", error);
+    }
+  };
+
+  // Fetch recent orders
+  const fetchRecentOrders = async () => {
+    try {
+      const response = await fetch("http://localhost/PHP/recent_orders.php", {
+        method: "GET",
+        credentials: "include"
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setRecentOrders(data.orders || []);
+      } else {
+        console.error("Failed to fetch recent orders:", data.error);
+      }
+    } catch (error) {
+      console.error("Failed to fetch recent orders:", error);
     }
   };
 
@@ -231,39 +275,29 @@ const User = () => {
 
                 <div className="user-likes-content">
                   <div className="user-likes-author">Favorite Authors</div>
-                  <div className="user-likes-tag">
-                    <img src={ai} alt="User" className="user-image" />
-                    <div className="user-info">
-                      <a>Harlem Shuffle</a>
-                      <a>New York</a>
+                  
+                  {favoriteAuthors.length > 0 ? (
+                    favoriteAuthors.map((author, index) => (
+                      <div className="user-likes-tag" key={index}>
+                        <img src={`/images/ai.png`} alt="Author" className="user-image" />
+                        <div className="user-info">
+                          <a>{author.name}</a>
+                          <a>{author.bookTitle || "Bestselling Author"}</a>
+                        </div>
+                        <div className="user-actions">
+                          <a className="like-count">{author.orderCount}</a>
+                          <a className="favorite-action"><Favorite /></a>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="user-likes-tag">
+                      <div className="user-info">
+                        <a>No favorite authors yet</a>
+                        <a>Start ordering books to see your favorites!</a>
+                      </div>
                     </div>
-                    <div className="user-actions">
-                      <a className="like-count">3</a>
-                      <a className="favorite-action"><Favorite /></a>
-                    </div>
-                  </div>
-                  <div className="user-likes-tag">
-                    <img src={ai} alt="User" className="user-image" />
-                    <div className="user-info">
-                      <a>Harlem Shuffle</a>
-                      <a>New York</a>
-                    </div>
-                    <div className="user-actions">
-                      <a className="like-count">3</a>
-                      <a className="favorite-action"><Favorite /></a>
-                    </div>
-                  </div>
-                  <div className="user-likes-tag">
-                    <img src={ai} alt="User" className="user-image" />
-                    <div className="user-info">
-                      <a>Harlem Shuffle</a>
-                      <a>New York</a>
-                    </div>
-                    <div className="user-actions">
-                      <a className="like-count">3</a>
-                      <a className="favorite-action"><Favorite /></a>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
               <div className="user-history">
@@ -279,21 +313,19 @@ const User = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Erasure</td>
-                        <td>2</td>
-                        <td><span className="status status-delivered">Delivered</span></td>
-                      </tr>
-                      <tr>
-                        <td>Erasure</td>
-                        <td>2</td>
-                        <td><span className="status status-processing">On the way</span></td>
-                      </tr>
-                      <tr>
-                        <td>Erasure</td>
-                        <td>2</td>
-                        <td><span className="status status-cancelled">Checking</span></td>
-                      </tr>
+                      {recentOrders.length > 0 ? (
+                        recentOrders.map((order, index) => (
+                          <tr key={index}>
+                            <td>{order.name}</td>
+                            <td>{order.quantity}</td>
+                            <td><span className={`status status-${order.status.toLowerCase()}`}>{order.status}</span></td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="3">No recent orders</td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                   <a href="/notification" className="user-history-full">Details</a>

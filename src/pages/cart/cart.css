@@ -68,9 +68,6 @@ footer {
     margin-bottom: 20px;
   }
   
-
-
-  
   .cart-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -220,7 +217,71 @@ footer {
 }
 
 .cart-address button {
-  color:#658C65;
+  background-color: transparent;
+  color: #658C65;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 18px;
+  padding: 5px 0;
+  margin-top: 5px;
+}
+
+.cart-address button:hover {
+  color: #4a6a4a;
+}
+
+/* Address editing form styles */
+.address-edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.address-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.address-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.address-buttons button {
+  background-color: #f6efe4;
+  color: #658C65;
+  border: 1px solid #658C65;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.address-buttons button:first-child {
+  background-color: #658C65;
+  color: #F1E8DA;
+}
+
+.address-buttons button:hover {
+  opacity: 0.9;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fadbd8;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 .cart-payment {
@@ -239,7 +300,7 @@ footer {
 }
 
 .cart-payment-button button {
-  text-decoration: none;;
+  text-decoration: none;
   background-color: #658C65;
   color: #F1E8DA;
   border: none;
@@ -248,6 +309,11 @@ footer {
   font-size: 24px;
   font-weight: 700;
   border-radius: 45px;
+}
+
+.cart-payment-button button:disabled {
+  background-color: #a5b8a5;
+  cursor: not-allowed;
 }
 
 /* ==================== RESPONSIVE STYLES ==================== */
@@ -266,6 +332,10 @@ footer {
 
   .cart-address, .cart-payment {
     font-size: 1rem;
+  }
+  
+  .address-edit-form {
+    width: 100%;
   }
 }
 
@@ -290,5 +360,14 @@ footer {
   .cart-info-pay {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .address-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .address-buttons button {
+    width: 100%;
   }
 }
