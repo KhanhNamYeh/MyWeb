@@ -1,0 +1,225 @@
+/* AboutUs.css */
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.about-us-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-us-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.about-us-description {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #5a6c7d;
+}
+
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Cards section */
+.about-us-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.about-us-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-us-card-icon {
+  width: 70px;
+  height: 70px;
+  background-color: #f0f7ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.about-us-card-icon i {
+  font-size: 28px;
+  color: #3498db;
+}
+
+.about-us-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+.about-us-card p {
+  line-height: 1.6;
+  color: #5a6c7d;
+}
+
+/* Team section */
+.about-us-team {
+  margin-top: 20px;
+}
+
+.about-us-team h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.about-us-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.about-us-team-member {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.about-us-team-member:hover {
+  transform: translateY(-5px);
+}
+
+.about-us-team-member-image {
+  width: 120px;
+  height: 120px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-us-team-member h4 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.about-us-team-member p {
+  color: #3498db;
+  font-weight: 500;
+}
+
+/* Loading state */
+.about-us-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.about-us-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-left-color: #3498db;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error state */
+.about-us-error-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #fff8f8;
+  border-radius: 8px;
+  border: 1px solid #ffecec;
+}
+
+.about-us-error-container p {
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.about-us-error-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.about-us-error-container button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-us-header h1 {
+    font-size: 2rem;
+  }
+  
+  .about-us-description {
+    font-size: 1rem;
+  }
+  
+  .about-us-cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-us-team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  
+  .about-us-team-member {
+    padding: 20px;
+  }
+  
+  .about-us-team-member-image {
+    width: 100px;
+    height: 100px;
+  }
+}

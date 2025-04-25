@@ -1,0 +1,17 @@
+{
+    "site_name": "ReadGo",
+    "site_description": "Your one-stop shop for books",
+    "contact_email": "admin@example.com",
+    "contact_phone": "+1234567890",
+    "social_media": {
+        "facebook": "https:\/\/www.facebook.com\/",
+        "twitter": "https:\/\/x.com\/",
+        "instagram": "https:\/\/www.instagram.com\/"
+    },
+    "shipping_info": "Free shipping on orders over $50",
+    "maintenance_mode": false,
+    "about_us": {
+        "mission": "At ReadGO, our mission is to ignite passion for reading by providing accessible, diverse, and thoughtfully curated literature that enriches minds and connects communities.",
+        "vision": "Our vision at ReadGO is to be a cornerstone of literary culture where stories transform lives and build bridges across generations and communities."
+    }
+}

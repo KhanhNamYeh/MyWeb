@@ -4,6 +4,8 @@ import Navbar from "../HeadAndFooter/Navbar";
 import Footer from "../HeadAndFooter/Footer";
 import AdminBookManagement from "./component/AdminBookManagement";
 import AdminUserManagement from "./component/AdminUserManagement";
+import AdminOrderManagement from "./component/AdminOrderManagement";
+import AdminSiteSettings from "./component/AdminSiteSettings";
 import "./AdminPage.css";
 
 const AdminPage = () => {
@@ -77,9 +79,9 @@ const AdminPage = () => {
       case "users":
         return <AdminUserManagement />;
       case "orders":
-        return <div className="admin-page-coming-soon">Orders management coming soon</div>;
+        return <AdminOrderManagement />;
       case "settings":
-        return <div className="admin-page-coming-soon">Site settings coming soon</div>;
+        return <AdminSiteSettings />;
       default:
         return <AdminBookManagement />;
     }
@@ -121,7 +123,7 @@ const AdminPage = () => {
                 className={activeTab === "orders" ? "active" : ""}
                 onClick={() => setActiveTab("orders")}
               >
-                Orders
+                Order Management
               </li>
               <li 
                 className={activeTab === "settings" ? "active" : ""}

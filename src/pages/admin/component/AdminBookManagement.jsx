@@ -11,6 +11,7 @@ const AdminBookManagement = () => {
     title: "",
     author: "",
     genre: "",
+    newGenre: "", // Added new state for custom genre input
     price: "",
     sale: "",
     promotion: "",
@@ -40,6 +41,7 @@ const AdminBookManagement = () => {
       title: "",
       author: "",
       genre: "",
+      newGenre: "", // Reset new genre field
       price: "",
       sale: "",
       promotion: "",
@@ -55,6 +57,7 @@ const AdminBookManagement = () => {
       title: book.title,
       author: book.author,
       genre: book.genre,
+      newGenre: "", // Reset new genre field
       price: book.price.toString(),
       sale: book.sale ? book.sale.toString() : "",
       promotion: book.promotion || "",
@@ -112,11 +115,14 @@ const AdminBookManagement = () => {
       return;
     }
 
+    // Determine the actual genre to use (selected or new)
+    const genreToUse = formData.genre === "new" && formData.newGenre ? formData.newGenre : formData.genre;
+
     // Prepare data for submission
     const bookData = {
       title: formData.title,
       author: formData.author,
-      genre: formData.genre,
+      genre: genreToUse,
       price: parseFloat(formData.price),
       sale: formData.sale ? parseFloat(formData.sale) : null,
       promotion: formData.promotion,
@@ -285,7 +291,8 @@ const AdminBookManagement = () => {
                 {formData.genre === "new" && (
                   <input
                     type="text"
-                    name="genre"
+                    name="newGenre"
+                    value={formData.newGenre}
                     placeholder="Enter new genre"
                     onChange={handleInputChange}
                     className="admin-bookmanage-mt-2"

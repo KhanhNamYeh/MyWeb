@@ -11,6 +11,40 @@ const Navbar = () => {
   const [username, setUsername] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [hoveredItemKey, setHoveredItemKey] = useState(null);
+  const [siteSettings, setSiteSettings] = useState({
+    site_name: "ReadGO",
+    social_media: {
+      facebook: "",
+      twitter: "",
+      instagram: ""
+    }
+  });
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch("http://localhost/PHP/admin_settings.php", {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: "get_settings"
+          }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          setSiteSettings(data.settings);
+        }
+      } catch (err) {
+        console.error("Error loading site settings:", err);
+      }
+    };
+
+    fetchSettings();
+  }, []);
 
   // Check login status when component mounts
   useEffect(() => {
@@ -85,8 +119,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/home" className="animated-logo-button" data-text="ReadGO">
-        <span className="actual-text">&nbsp;ReadGO&nbsp;</span>
+      <Link to="/home" className="animated-logo-button" data-text={siteSettings.site_name || "ReadGO"}>
+        <span className="actual-text">&nbsp;{siteSettings.site_name || "ReadGO"}&nbsp;</span>
         <span aria-hidden="true" className="hover-text">&nbsp;ReadGO&nbsp;</span>
       </Link>
 

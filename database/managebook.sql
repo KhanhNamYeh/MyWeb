@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2025 at 05:19 AM
+-- Generation Time: Apr 25, 2025 at 05:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -54,43 +54,9 @@ INSERT INTO `books` (`id`, `name`, `title`, `author`, `price`, `sale`, `promotio
 (10, 'Funny Bones', 'Funny Bones', 'by Janet Tashjian', 85000, NULL, NULL, 'funny_bones.jpg'),
 (11, 'The Giggle Game', 'The Giggle Game', 'by Jimmy Fallon', 90000, NULL, NULL, 'giggle_game.jpg'),
 (12, 'Ghosts in the Library', 'Ghosts in the Library', 'by R.L. Stine', 105000, NULL, NULL, 'ghosts.jpg'),
-(13, 'Erasure', 'Erasure', 'by Percival Everett', 120000, NULL, NULL, 'erasure.jpg'),
-(14, 'Harlem Shuffle', 'Harlem Shuffle', 'by Colson Whitehead', 150000, NULL, NULL, 'harlem_shuffle.jpg'),
-(15, 'Native Nations', 'Native Nations', 'by Kathleen Duval', 180000, NULL, NULL, 'native_nations.jpg'),
-(16, 'This Motherless Land', 'This Motherless Land', 'by Nikki May', 110000, NULL, NULL, 'this_motherless_land.jpg'),
-(17, 'The Haunting', 'The Haunting of Hill House', 'by Shirley Jackson', 99000, NULL, NULL, 'haunting.jpg'),
-(18, 'It', 'It', 'by Stephen King', 175000, NULL, NULL, 'it.jpg'),
-(19, 'Dracula', 'Dracula', 'by Bram Stoker', 130000, NULL, NULL, 'dracula.jpg'),
-(20, 'Pet Sematary', 'Pet Sematary', 'by Stephen King', 160000, NULL, NULL, 'pet_sematary.jpg'),
-(21, 'The Shining', 'The Shining', 'by Stephen King', 170000, NULL, NULL, 'shining.jpg'),
-(22, 'Funny Bones', 'Funny Bones', 'by Janet Tashjian', 85000, NULL, NULL, 'funny_bones.jpg'),
-(23, 'The Giggle Game', 'The Giggle Game', 'by Jimmy Fallon', 90000, NULL, NULL, 'giggle_game.jpg'),
-(24, 'Ghosts in the Library', 'Ghosts in the Library', 'by R.L. Stine', 105000, NULL, NULL, 'ghosts.jpg'),
-(25, 'Erasure', 'Erasure', 'by Percival Everett', 120000, NULL, NULL, 'erasure.jpg'),
-(26, 'Harlem Shuffle', 'Harlem Shuffle', 'by Colson Whitehead', 150000, NULL, NULL, 'harlem_shuffle.jpg'),
-(27, 'Native Nations', 'Native Nations', 'by Kathleen Duval', 180000, NULL, NULL, 'native_nations.jpg'),
-(28, 'This Motherless Land', 'This Motherless Land', 'by Nikki May', 110000, NULL, NULL, 'this_motherless_land.jpg'),
-(29, 'The Haunting', 'The Haunting of Hill House', 'by Shirley Jackson', 99000, NULL, NULL, 'haunting.jpg'),
-(30, 'It', 'It', 'by Stephen King', 175000, NULL, NULL, 'it.jpg'),
-(31, 'Dracula', 'Dracula', 'by Bram Stoker', 130000, NULL, NULL, 'dracula.jpg'),
-(32, 'Pet Sematary', 'Pet Sematary', 'by Stephen King', 160000, NULL, NULL, 'pet_sematary.jpg'),
-(33, 'The Shining', 'The Shining', 'by Stephen King', 170000, NULL, NULL, 'shining.jpg'),
-(34, 'Funny Bones', 'Funny Bones', 'by Janet Tashjian', 85000, NULL, NULL, 'funny_bones.jpg'),
-(35, 'The Giggle Game', 'The Giggle Game', 'by Jimmy Fallon', 90000, NULL, NULL, 'giggle_game.jpg'),
-(36, 'Ghosts in the Library', 'Ghosts in the Library', 'by R.L. Stine', 105000, NULL, NULL, 'ghosts.jpg'),
-(37, 'Erasure', 'Erasure', 'by Percival Everett', 120000, NULL, NULL, 'erasure.jpg'),
-(38, 'Harlem Shuffle', 'Harlem Shuffle', 'by Colson Whitehead', 150000, NULL, NULL, 'harlem_shuffle.jpg'),
-(39, 'Native Nations', 'Native Nations', 'by Kathleen Duval', 180000, NULL, NULL, 'native_nations.jpg'),
-(40, 'This Motherless Land', 'This Motherless Land', 'by Nikki May', 110000, NULL, NULL, 'this_motherless_land.jpg'),
-(41, 'The Haunting', 'The Haunting of Hill House', 'by Shirley Jackson', 99000, NULL, NULL, 'haunting.jpg'),
-(42, 'It', 'It', 'by Stephen King', 175000, NULL, NULL, 'it.jpg'),
-(43, 'Dracula', 'Dracula', 'by Bram Stoker', 130000, NULL, NULL, 'dracula.jpg'),
-(44, 'Pet Sematary', 'Pet Sematary', 'by Stephen King', 160000, NULL, NULL, 'pet_sematary.jpg'),
-(45, 'The Shining', 'The Shining', 'by Stephen King', 170000, NULL, NULL, 'shining.jpg'),
-(46, 'Funny Bones', 'Funny Bones', 'by Janet Tashjian', 85000, NULL, NULL, 'funny_bones.jpg'),
-(47, 'The Giggle Game', 'The Giggle Game', 'by Jimmy Fallon', 90000, NULL, NULL, 'giggle_game.jpg'),
-(48, 'Ghosts in the Library', 'Ghosts in the Library', 'by R.L. Stine', 105000, NULL, NULL, 'ghosts.jpg'),
-(49, 'Erasure', NULL, 'by Percival Everett', 120000, NULL, '', 'erasure.jpg');
+(49, 'Erasure', NULL, 'by Percival Everett', 120000, NULL, '', 'erasure.jpg'),
+(50, 'Erasure', NULL, 'by Percival Everett', 120000, 110000, '', 'erasure.jpg'),
+(51, 'Erasure', NULL, 'by Percival Everett', 120000, 110000, '', 'erasure.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,7 +92,9 @@ INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
 (12, 1),
 (12, 2),
 (12, 3),
-(49, 1);
+(49, 1),
+(50, 2),
+(51, 13);
 
 -- --------------------------------------------------------
 
@@ -173,15 +141,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'Children'),
 (2, 'Horror'),
 (3, 'Comedy'),
-(4, 'Children'),
-(5, 'Horror'),
-(6, 'Comedy'),
-(7, 'Children'),
-(8, 'Horror'),
-(9, 'Comedy'),
-(10, 'Children'),
-(11, 'Horror'),
-(12, 'Comedy');
+(13, 'TEST TEST');
 
 -- --------------------------------------------------------
 
@@ -201,8 +161,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `total`, `status`) VALUES
-(1, 8, 720000, 'Delivered'),
-(2, 8, 440000, 'Delivered');
+(1, 8, 720000, 'Processing'),
+(2, 8, 440000, 'Processing'),
+(4, 8, 105000, 'Cancelled'),
+(5, 8, 90000, 'Delivered');
 
 -- --------------------------------------------------------
 
@@ -226,7 +188,9 @@ INSERT INTO `order_items` (`id`, `order_id`, `book_id`, `quantity`, `price`) VAL
 (1, 1, 3, 4, 180000),
 (2, 2, 2, 1, 150000),
 (3, 2, 3, 1, 180000),
-(4, 2, 4, 1, 110000);
+(4, 2, 4, 1, 110000),
+(6, 4, 12, 1, 105000),
+(7, 5, 11, 1, 90000);
 
 -- --------------------------------------------------------
 
@@ -316,31 +280,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
